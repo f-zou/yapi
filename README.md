@@ -1,84 +1,84 @@
-## YApi  可视化接口管理平台
+## YApi api manage platform
+
+demo (chinese): 
 <p><a target="_blank" href="http://yapi.demo.qunar.com">yapi.demo.qunar.com</a></p>
 
-### 平台介绍
+### introduction
 ![avatar](yapi-base-flow.jpg)
 
-YApi 是<strong>高效</strong>、<strong>易用</strong>、<strong>功能强大</strong>的 api 管理平台，旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API，YApi 还为用户提供了优秀的交互体验，开发人员只需利用平台提供的接口数据写入工具以及简单的点击操作就可以实现接口的管理。
+YApi is an efficient, easy-to-use, and powerful api management platform. 
+it ist designed to provide more elegant interface management services for developers, products, and testers. 
+It can help developers to easily create, publish, and maintain APIs. 
+YApi also provides users with an excellent interactive experience. 
+Developers can manage interfaces by using the tools in platform with simple click operations.
 
-**QQ交流群**: 644642474
+### Features
+* efficiency: Based on Json5 and Mockjs to define the structure and data of the response   
+* Flattened permission-design ensures the management of large enterprise-level projects and ensures ease of use
+* Interface debugging like postman
+* Automated testing, support assertions for response
+* MockServer: random mock data, custom mock data, expectation function for mock, request filter rule for returning expected data
+* Support data import from postman, har, swagger 
+* Free open source, intranet deployment, no longer afraid to information-leak
 
-### 特性
-*  基于 Json5 和 Mockjs 定义接口返回数据的结构和文档，效率提升多倍
-*  扁平化权限设计，即保证了大型企业级项目的管理，又保证了易用性
-*  类似 postman 的接口调试
-*  自动化测试, 支持对 Response 断言
-*  MockServer 除支持普通的随机 mock 外，还增加了 Mock 期望功能，根据设置的请求过滤规则，返回期望数据
-*  支持 postman, har, swagger 数据导入
-*  免费开源，内网部署，信息再也不怕泄露了
-
-### 内网部署
-#### 环境要求
+###  deployment
+#### Environments requirements
 * nodejs（7.6+)
 * mongodb（2.6+）
 * git
-#### 安装
-使用我们提供的 yapi-cli 工具，部署 YApi 平台是非常容易的。执行 yapi server 启动可视化部署程序，输入相应的配置和点击开始部署，就能完成整个网站的部署。部署完成之后，可按照提示信息，执行 node/{网站路径/server/app.js} 启动服务器。在浏览器打开指定url, 点击登录输入您刚才设置的管理员邮箱，默认密码为 ymfe.org 登录系统（默认密码可在个人中心修改）。
+#### install
+it is easy to use the yapi-cli to deploy the YApi platform. After server config. run node /xxx_project/server/app.js to start the server
+
 
     npm install -g yapi-cli --registry https://registry.npm.taobao.org
     yapi server 
 
-#### 升级
-升级项目版本是非常容易的，并且不会影响已有的项目数据，只会同步 vendors 目录下的源码文件。
+#### update
 
-    cd  {项目目录}
-    yapi ls //查看版本号列表
-    yapi update //更新到最新版本
-    yapi update -v {Version} //更新到指定版本
+    cd  {project}
+    yapi ls // check yapi version
+    yapi update // update to new version
+    yapi update -v {Version} // update to a version
     
-### 教程
-* [使用 YApi 管理 API 文档，测试， mock](https://juejin.im/post/5acc879f6fb9a028c42e8822)
-* [自动更新 Swagger 接口数据到 YApi 平台](https://juejin.im/post/5af500e251882567096140dd)
-* [自动化测试](https://juejin.im/post/5a388892f265da430e4f4681)
+### Tutorial (chinese)
+* [use YApi to manage API ,docs，tests and mock](https://juejin.im/post/5acc879f6fb9a028c42e8822)
+* [auto update Swagger data to YApi ](https://juejin.im/post/5af500e251882567096140dd)
+* [auto test](https://juejin.im/post/5a388892f265da430e4f4681)
 
-### YApi 插件
-* [yapi sso 登录插件](https://github.com/YMFE/yapi-plugin-qsso)
-* [yapi cas 登录插件](https://github.com/wsfe/yapi-plugin-cas) By wsfe
-* [yapi gitlab集成插件](https://github.com/cyj0122/yapi-plugin-gitlab)
-* [oauth2.0登录](https://github.com/xwxsee2014/yapi-plugin-oauth2)
-* [rap平台数据导入](https://github.com/wxxcarl/yapi-plugin-import-rap)
-* [dingding](https://github.com/zgs225/yapi-plugin-dding) 钉钉机器人推送插件
-* [export-docx-data](https://github.com/inceptiongt/Yapi-plugin-export-docx-data) 数据导出docx文档
+### YApi plugin
+* [yapi sso login](https://github.com/YMFE/yapi-plugin-qsso)
+* [yapi cas login](https://github.com/wsfe/yapi-plugin-cas) By wsfe
+* [yapi gitlabi_intergration](https://github.com/cyj0122/yapi-plugin-gitlab)
+* [oauto2.0login](https://github.com/xwxsee2014/yapi-plugin-oauth2)
+* [rap_data_import](https://github.com/wxxcarl/yapi-plugin-import-rap)
+* [dingding](https://github.com/zgs225/yapi-plugin-dding) robot push pulgin
 
-### 代码生成
-* [yapi-to-typescript：根据 YApi 的接口定义生成 TypeScript 的请求函数](https://github.com/fjc0k/yapi-to-typescript)
-* [yapi-gen-js-code: 根据 YApi 的接口定义生成 javascript 的请求函数](https://github.com/hellosean1025/yapi-gen-js-code)
+### code generator
+* [yapi-to-typescript：generate TypeScript request function from yapi interface](https://github.com/fjc0k/yapi-to-typescript)
+* [yapi-gen-js-code: gernerate javascript request from yapi interface ](https://github.com/hellosean1025/yapi-gen-js-code)
 
-### YApi docker部署（非官方）
-* [使用 alpine 版 docker 镜像快速部署 yapi](https://www.jianshu.com/p/a97d2efb23c5)
-* [docker-yapi](https://github.com/Ryan-Miao/docker-yapi)
+### depoly yapi docker（unofficial, chinese）
+* [use alpine docker to desplay yapi fast](https://www.jianshu.com/p/a97d2efb23c5)
 
-### YApi 一些工具
-* [mysql服务http工具,可配合做自动化测试](https://github.com/hellosean1025/http-mysql-server)
-* [idea 一键上传接口到yapi插件](https://github.com/FurionCS/YapiIdeaUploadPlugin)
+### YApi tools
+* [mysql service http tool for yapi auto testing](https://github.com/hellosean1025/http-mysql-server)
 
-### YApi 的一些客户
-* 去哪儿
-* 携程
-* 艺龙 
-* 美团
-* 百度
-* 腾讯
-* 阿里巴巴
-* 京东
-* 今日头条
-* 唯品支付 
+### YApi reference customers
+* 去哪儿 Qunar.com
+* 携程 ctrip.com
+* 艺龙 elong.com
+* 美团 meituan.com
+* 百度 baidu.com
+* 腾讯 tencent.com
+* 阿里巴巴 alibaba.com
+* 京东 jd.com
+* 今日头条 toutiao.com
+* 唯品支付 vpal.com
 * 链家网
-* 快手
-* 便利蜂
-* 中商惠民
-* 新浪
-* VIPKID
+* 快手 kuaishou.com
+* 便利蜂 
+* 中商惠民 
+* 新浪 sina.com
 
 ### Authors
 * [hellosean1025](https://github.com/hellosean1025)
@@ -87,6 +87,8 @@ YApi 是<strong>高效</strong>、<strong>易用</strong>、<strong>功能强大
 * [dwb1994](https://github.com/dwb1994)
 * [fungezi](https://github.com/fungezi)
 
+### translator
+* [f-zou](https://github.com/f-zou)
 
 ### License
 Apache License 2.0

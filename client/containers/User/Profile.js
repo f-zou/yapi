@@ -385,7 +385,7 @@ class Profile extends Component {
       <div className="user-profile">
         <div className="user-item-body">
           {userinfo.uid === this.props.curUid ? (
-            <h3>个人设置</h3>
+            <h3>user setting</h3>
           ) : (
             <h3>{userinfo.username} 资料设置</h3>
           )}
@@ -403,12 +403,12 @@ class Profile extends Component {
           </Row>
           <Row className="user-item" type="flex" justify="start">
             <div className="maoboli" />
-            <Col span={4}>用户id</Col>
+            <Col span={4}>user id</Col>
             <Col span={12}>{userinfo.uid}</Col>
           </Row>
           <Row className="user-item" type="flex" justify="start">
             <div className="maoboli" />
-            <Col span={4}>用户名</Col>
+            <Col span={4}>user name</Col>
             <Col span={12}>{userNameEditHtml}</Col>
           </Row>
           <Row className="user-item" type="flex" justify="start">
