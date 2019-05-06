@@ -1,6 +1,7 @@
 {
-  "name": "yapi-vendor",
-  "version": "1.7.0",
+  "name": "@stuttgarter/yapi-en",
+  "version": "0.1.1",
+  "origin-version": "1.7.0",
   "description": "YAPI",
   "main": "server/app.js",
   "scripts": {
