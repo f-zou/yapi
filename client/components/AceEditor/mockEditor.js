@@ -1,5 +1,5 @@
 var ace = require('brace'),
-  Mock = require('mockjs');
+    Mock = require('mockjs');
 require('brace/mode/javascript');
 require('brace/mode/json');
 require('brace/mode/xml');
@@ -10,177 +10,177 @@ var json5 = require('json5');
 const MockExtra = require('common/mock-extra.js');
 
 var langTools = ace.acequire('ace/ext/language_tools'),
-  wordList = [
-    { name: '字符串', mock: '@string' },
-    { name: '自然数', mock: '@natural' },
-    { name: '浮点数', mock: '@float' },
-    { name: '字符', mock: '@character' },
-    { name: '布尔', mock: '@boolean' },
-    { name: 'url', mock: '@url' },
-    { name: '域名', mock: '@domain' },
-    { name: 'ip地址', mock: '@ip' },
-    { name: 'id', mock: '@id' },
-    { name: 'guid', mock: '@guid' },
-    { name: '当前时间', mock: '@now' },
-    { name: '时间戳', mock: '@timestamp' },
-    { name: '日期', mock: '@date' },
-    { name: '时间', mock: '@time' },
-    { name: '日期时间', mock: '@datetime' },
-    { name: '图片连接', mock: '@image' },
-    { name: '图片data', mock: '@imageData' },
-    { name: '颜色', mock: '@color' },
-    { name: '颜色hex', mock: '@hex' },
-    { name: '颜色rgba', mock: '@rgba' },
-    { name: '颜色rgb', mock: '@rgb' },
-    { name: '颜色hsl', mock: '@hsl' },
-    { name: '整数', mock: '@integer' },
-    { name: 'email', mock: '@email' },
-    { name: '大段文本', mock: '@paragraph' },
-    { name: '句子', mock: '@sentence' },
-    { name: '单词', mock: '@word' },
-    { name: '大段中文文本', mock: '@cparagraph' },
-    { name: '中文标题', mock: '@ctitle' },
-    { name: '标题', mock: '@title' },
-    { name: '姓名', mock: '@name' },
-    { name: '中文姓名', mock: '@cname' },
-    { name: '中文姓', mock: '@cfirst' },
-    { name: '中文名', mock: '@clast' },
-    { name: '英文姓', mock: '@first' },
-    { name: '英文名', mock: '@last' },
-    { name: '中文句子', mock: '@csentence' },
-    { name: '中文词组', mock: '@cword' },
-    { name: '地址', mock: '@region' },
-    { name: '省份', mock: '@province' },
-    { name: '城市', mock: '@city' },
-    { name: '地区', mock: '@county' },
-    { name: '转换为大写', mock: '@upper' },
-    { name: '转换为小写', mock: '@lower' },
-    { name: '挑选（枚举）', mock: '@pick' },
-    { name: '打乱数组', mock: '@shuffle' },
-    { name: '协议', mock: '@protocol' }
-  ];
+    wordList = [
+        { name: 'string', mock: '@string' },
+        { name: 'natural number', mock: '@natural' },
+        { name: 'float', mock: '@float' },
+        { name: 'character', mock: '@character' },
+        { name: 'boolean', mock: '@boolean' },
+        { name: 'url', mock: '@url' },
+        { name: 'domain', mock: '@domain' },
+        { name: 'ip address', mock: '@ip' },
+        { name: 'id', mock: '@id' },
+        { name: 'guid', mock: '@guid' },
+        { name: 'current time', mock: '@now' },
+        { name: 'timestamp', mock: '@timestamp' },
+        { name: 'date', mock: '@date' },
+        { name: 'time', mock: '@time' },
+        { name: 'datetime', mock: '@datetime' },
+        { name: 'image link', mock: '@image' },
+        { name: 'image data', mock: '@imageData' },
+        { name: 'color', mock: '@color' },
+        { name: 'color hex', mock: '@hex' },
+        { name: 'color rgba', mock: '@rgba' },
+        { name: 'colr rgb', mock: '@rgb' },
+        { name: 'color hsl', mock: '@hsl' },
+        { name: 'integer', mock: '@integer' },
+        { name: 'email', mock: '@email' },
+        { name: 'paragraph', mock: '@paragraph' },
+        { name: 'sentence', mock: '@sentence' },
+        { name: 'word', mock: '@word' },
+        { name: 'big chinese paragraph', mock: '@cparagraph' },
+        { name: 'title in chinese', mock: '@ctitle' },
+        { name: 'title', mock: '@title' },
+        { name: 'name', mock: '@name' },
+        { name: 'chinese name', mock: '@cname' },
+        { name: 'chinese first name', mock: '@cfirst' },
+        { name: 'chinese last name', mock: '@clast' },
+        { name: 'english first name', mock: '@first' },
+        { name: 'english last name', mock: '@last' },
+        { name: 'sentence in chinese', mock: '@csentence' },
+        { name: 'words in chinese', mock: '@cword' },
+        { name: 'region', mock: '@region' },
+        { name: 'province', mock: '@province' },
+        { name: 'city', mock: '@city' },
+        { name: 'contry', mock: '@county' },
+        { name: 'upper', mock: '@upper' },
+        { name: 'lower', mock: '@lower' },
+        { name: 'emu', mock: '@pick' },
+        { name: 'shuffle array', mock: '@shuffle' },
+        { name: 'protocol', mock: '@protocol' }
+    ];
 
 let dom = ace.acequire('ace/lib/dom');
 ace.acequire('ace/commands/default_commands').commands.push({
-  name: 'Toggle Fullscreen',
-  bindKey: 'F9',
-  exec: function(editor) {
-    if (editor._fullscreen_yapi) {
-      let fullScreen = dom.toggleCssClass(document.body, 'fullScreen');
-      dom.setCssClass(editor.container, 'fullScreen', fullScreen);
-      editor.setAutoScrollEditorIntoView(!fullScreen);
-      editor.resize();
+    name: 'Toggle Fullscreen',
+    bindKey: 'F9',
+    exec: function(editor) {
+        if (editor._fullscreen_yapi) {
+            let fullScreen = dom.toggleCssClass(document.body, 'fullScreen');
+            dom.setCssClass(editor.container, 'fullScreen', fullScreen);
+            editor.setAutoScrollEditorIntoView(!fullScreen);
+            editor.resize();
+        }
     }
-  }
 });
 
 function run(options) {
-  var editor, mockEditor, rhymeCompleter;
-  function handleJson(json) {
-    var curData = mockEditor.curData;
-    try {
-      curData.text = json;
-      var obj = json5.parse(json);
-      curData.format = true;
-      curData.jsonData = obj;
-      curData.mockData = () => Mock.mock(MockExtra(obj, {})); //为防止时时 mock 导致页面卡死的问题，改成函数式需要用到再计算
-    } catch (e) {
-      curData.format = e.message;
+    var editor, mockEditor, rhymeCompleter;
+    function handleJson(json) {
+        var curData = mockEditor.curData;
+        try {
+            curData.text = json;
+            var obj = json5.parse(json);
+            curData.format = true;
+            curData.jsonData = obj;
+            curData.mockData = () => Mock.mock(MockExtra(obj, {})); //为防止时时 mock 导致页面卡死的问题，改成函数式需要用到再计算
+        } catch (e) {
+            curData.format = e.message;
+        }
     }
-  }
-  options = options || {};
-  var container, data;
-  container = options.container || 'mock-editor';
-  if (
-    options.wordList &&
-    typeof options.wordList === 'object' &&
-    options.wordList.name &&
-    options.wordList.mock
-  ) {
-    wordList.push(options.wordList);
-  }
-  data = options.data || '';
-  options.readOnly = options.readOnly || false;
-  options.fullScreen = options.fullScreen || false;
-
-  editor = ace.edit(container);
-  editor.$blockScrolling = Infinity;
-  editor.getSession().setMode('ace/mode/javascript');
-  if (options.readOnly === true) {
-    editor.setReadOnly(true);
-    editor.renderer.$cursorLayer.element.style.display = 'none';
-  }
-  editor.setTheme('ace/theme/xcode');
-  editor.setOptions({
-    enableBasicAutocompletion: true,
-    enableSnippets: false,
-    enableLiveAutocompletion: true,
-    useWorker: true
-  });
-  editor._fullscreen_yapi = options.fullScreen;
-  mockEditor = {
-    curData: {},
-    getValue: () => mockEditor.curData.text,
-    setValue: function(data) {
-      editor.setValue(handleData(data));
-    },
-    editor: editor,
-    options: options,
-    insertCode: code => {
-      let pos = editor.selection.getCursor();
-      editor.session.insert(pos, code);
+    options = options || {};
+    var container, data;
+    container = options.container || 'mock-editor';
+    if (
+        options.wordList &&
+        typeof options.wordList === 'object' &&
+        options.wordList.name &&
+        options.wordList.mock
+    ) {
+        wordList.push(options.wordList);
     }
-  };
+    data = options.data || '';
+    options.readOnly = options.readOnly || false;
+    options.fullScreen = options.fullScreen || false;
 
-  function formatJson(json) {
-    try {
-      return JSON.stringify(JSON.parse(json), null, 2);
-    } catch (err) {
-      return json;
+    editor = ace.edit(container);
+    editor.$blockScrolling = Infinity;
+    editor.getSession().setMode('ace/mode/javascript');
+    if (options.readOnly === true) {
+        editor.setReadOnly(true);
+        editor.renderer.$cursorLayer.element.style.display = 'none';
     }
-  }
+    editor.setTheme('ace/theme/xcode');
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: false,
+        enableLiveAutocompletion: true,
+        useWorker: true
+    });
+    editor._fullscreen_yapi = options.fullScreen;
+    mockEditor = {
+        curData: {},
+        getValue: () => mockEditor.curData.text,
+        setValue: function(data) {
+            editor.setValue(handleData(data));
+        },
+        editor: editor,
+        options: options,
+        insertCode: code => {
+            let pos = editor.selection.getCursor();
+            editor.session.insert(pos, code);
+        }
+    };
 
-  function handleData(data) {
-    data = data || '';
-    if (typeof data === 'string') {
-      return formatJson(data);
-    } else if (typeof data === 'object') {
-      return JSON.stringify(data, null, '  ');
-    } else {
-      return '' + data;
+    function formatJson(json) {
+        try {
+            return JSON.stringify(JSON.parse(json), null, 2);
+        } catch (err) {
+            return json;
+        }
     }
-  }
 
-  rhymeCompleter = {
-    identifierRegexps: [/[@]/],
-    getCompletions: function(editor, session, pos, prefix, callback) {
-      if (prefix.length === 0) {
-        callback(null, []);
-        return;
-      }
-      callback(
-        null,
-        wordList.map(function(ea) {
-          return { name: ea.mock, value: ea.mock, score: ea.mock, meta: ea.name };
-        })
-      );
+    function handleData(data) {
+        data = data || '';
+        if (typeof data === 'string') {
+            return formatJson(data);
+        } else if (typeof data === 'object') {
+            return JSON.stringify(data, null, '  ');
+        } else {
+            return '' + data;
+        }
     }
-  };
 
-  langTools.addCompleter(rhymeCompleter);
-  mockEditor.setValue(handleData(data));
-  handleJson(editor.getValue());
+    rhymeCompleter = {
+        identifierRegexps: [/[@]/],
+        getCompletions: function(editor, session, pos, prefix, callback) {
+            if (prefix.length === 0) {
+                callback(null, []);
+                return;
+            }
+            callback(
+                null,
+                wordList.map(function(ea) {
+                    return { name: ea.mock, value: ea.mock, score: ea.mock, meta: ea.name };
+                })
+            );
+        }
+    };
 
-  editor.clearSelection();
-
-  editor.getSession().on('change', () => {
+    langTools.addCompleter(rhymeCompleter);
+    mockEditor.setValue(handleData(data));
     handleJson(editor.getValue());
-    if (typeof options.onChange === 'function') {
-      options.onChange.call(mockEditor, mockEditor.curData);
-    }
+
     editor.clearSelection();
-  });
-  return mockEditor;
+
+    editor.getSession().on('change', () => {
+        handleJson(editor.getValue());
+        if (typeof options.onChange === 'function') {
+            options.onChange.call(mockEditor, mockEditor.curData);
+        }
+        editor.clearSelection();
+    });
+    return mockEditor;
 }
 
 /**

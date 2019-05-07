@@ -32,7 +32,7 @@ const HomeGuest = () => (
                 href="https://yapi.ymfe.org"
                 className="item"
               >
-                使用文档
+                docs
               </a>
             </div>
           </Col>
@@ -45,13 +45,13 @@ const HomeGuest = () => (
                 <span className="name">YAPI</span>
               </div>
               <div className="detail">
-                高效、易用、功能强大的API管理平台<br />
-                <span className="desc">旨在为开发、产品、测试人员提供更优雅的接口管理服务</span>
+                Efficient, easy to use, powerful API management platform <br />
+                <span className="desc">Designed to provide more elegant interface management services for developers, producters, and testers</span>
               </div>
               <div className="btn-group">
                 <Link to="/login">
                   <Button type="primary" className="btn-home btn-login">
-                    登录 / 注册
+                    login / register
                   </Button>
                 </Link>
                 {ThirdLogin != null ? <ThirdLogin /> : null}
@@ -68,27 +68,27 @@ const HomeGuest = () => (
     </div>
     <div className="feat-part section-feature">
       <div className="container home-section">
-        <h3 className="title">为API开发者设计的管理平台</h3>
+        <h3 className="title">Management platform designed for API developers</h3>
         <span className="desc">
-          YApi让接口开发更简单高效，让接口的管理更具可读性、可维护性，让团队协作更合理。
+    YApi makes interface development simpler , more efficient , more readable and more maintainable. it makes team collaboration more reasonable.
         </span>
         <Row key="feat-motion-row">
           <Col span={8} className="section-item" key="feat-wrapper-1">
             <Icon type="appstore-o" className="img" />
-            <h4 className="title">项目管理</h4>
-            <span className="desc">提供基本的项目分组，项目管理，接口管理功能</span>
+            <h4 className="title">Project Management</h4>
+            <span className="desc">rovide basic functions for project grouping, project management and interface management </span>
           </Col>
           <Col span={8} className="section-item" key="feat-wrapper-2">
             <Icon type="api" className="img" />
-            <h4 className="title">接口管理</h4>
+            <h4 className="title">interface management</h4>
             <span className="desc">
-              友好的接口文档，基于websocket的多人协作接口编辑功能和类postman测试工具，让多人协作成倍提升开发效率
+             Friendly interface documentation, websocket-based multiplayer collaboration interface editing and postman-like testing tools that enable multiplayer collaboration to increase development efficiency
             </span>
           </Col>
           <Col span={8} className="section-item" key="feat-wrapper-3">
             <Icon type="database" className="img" />
             <h4 className="title">MockServer</h4>
-            <span className="desc">基于Mockjs，使用简单功能强大</span>
+            <span className="desc">based on Mockjs， Simple and powerful</span>
           </Col>
         </Row>
       </div>
@@ -100,15 +100,15 @@ const HomeGuest = () => (
         <div className="m-bg-mask m-bg-mask2" />
       </div>
       <div className="container skew-container">
-        <h3 className="title">功能强大的 Mock 服务</h3>
-        <span className="desc">你想要的 Mock 服务都在这里</span>
+        <h3 className="title">Powerful Mock service</h3>
+        <span className="desc">Mock all you want service here</span>
         <Row className="row-card">
           <Col lg={12} xs={24} className="section-card">
             <Card title="Mock 规则">
               <p className="mock-desc">
-                通过学习一些简单的 Mock
-                模板规则即可轻松编写接口，这将大大提高定义接口的效率，并且无需为编写 Mock 数据烦恼:
-                所有的数据都可以实时随机生成。
+                By learning some simple Mock
+                Template rules make it easy to write interfaces。This will greatly improve the efficiency of defining interfaces。no need to worry about writing Mock data:
+                All data can be randomly generated in real time.
               </p>
               <div className="code">
                 <ol start="1">
@@ -195,8 +195,8 @@ const HomeGuest = () => (
           <Col lg={12} xs={24} className="section-card mock-after">
             <Card title="生成的 Mock 数据">
               <p className="mock-desc">
-                生成的 Mock 数据可以直接用 ajax
-                请求使用，也可以通过服务器代理使用（不需要修改项目一行代码）
+            The generated Mock data can be directly used via ajax call.
+            an also be used via a server proxy（ No need to modify the a line code）
               </p>
               <div className="code">
                 <ol start="1">
@@ -285,34 +285,33 @@ const HomeGuest = () => (
           <Col lg={7} xs={10} className="section-card">
             <Card>
               <div className="section-block block-first">
-                <h4>超级管理员(* N)</h4>
-                <p className="item"> - 创建分组</p>
-                <p className="item"> - 分配组长</p>
-                <p className="item"> - 管理所有成员信息</p>
+                <h4>administrator(* N)</h4>
+                <p className="item"> -  Create a group</p>
+                <p className="item"> - Distribution team leader,</p>
+                <p className="item"> -  Manage all member's information</p>
               </div>
               <div className="section-block block-second">
-                <h4>组长(* N)</h4>
-                <p className="item"> - 创建项目</p>
-                <p className="item"> - 管理分组或项目的信息</p>
-                <p className="item"> - 管理开发者与成员</p>
+                <h4>Leader(* N)</h4>
+                <p className="item"> - Create a project</p>
+                <p className="item"> - Manage group or project information</p>
+                <p className="item"> -  Manage developers and members</p>
               </div>
               <div className="section-block block-third">
-                <h4>开发者(* N) / 成员(* N)</h4>
-                <p className="item"> - 不允许创建分组</p>
-                <p className="item"> - 不允许修改分组或项目信息</p>
+                <h4>Developer(* N) / member(* N)</h4>
+                <p className="item"> - Creating groupings is not allowed</p>
+                <p className="item"> - Modify group or project information is not allowed</p>
               </div>
             </Card>
           </Col>
           <Col lg={17} xs={14} className="section-card manage-word">
             <Icon type="team" className="icon" />
-            <h3 className="title">扁平化管理模式</h3>
+            <h3 className="title">Flat management mode</h3>
             <p className="desc">
-              接口管理的逻辑较为复杂，操作频率高，层层审批将严重拖慢生产效率，因此传统的金字塔管理模式并不适用。
+            The logic of interface management is complex, the operation frequency is high, and the layer approval will seriously slow down the production efficiency. Therefore, the traditional pyramid management mode is not applicable
             </p>
             <p className="desc">
               YAPI
-              将扁平化管理模式的思想引入到产品的权限管理中，超级管理员拥有最高的权限，并将权限分配给若干组长，超级管理员只需管理组长即可，实际上管理YAPI各大分组与项目的是“组长”。组长对分组或项目负责，一般由BU负责人/项目负责人担任。
-            </p>
+            Introduce the idea of the flat management mode into the rights management of the product. The super administrator has the highest authority and assigns the rights to several group leaders. The super administrator only needs to manage the group leader, and actually manages the YAPI group.            </p>
           </Col>
         </Row>
       </div>
@@ -360,19 +359,19 @@ class Home extends Component {
         <div className="row-tip">
           <div className="container">
             <div className="tip-title">
-              <h3 className="title">准备好使用了吗？</h3>
-              <p className="desc">注册账号尽请使用吧，查看使用文档了解更多信息</p>
+              <h3 className="title">Ready to use？</h3>
+              <p className="desc"> Please use the registered account and see the documentation for more information.</p>
             </div>
             <div className="tip-btns">
               <div className="btn-group">
                 <Link to="/login">
                   <Button type="primary" className="btn-home btn-login">
-                    登录 / 注册
+                    login / register
                   </Button>
                 </Link>
                 <Button className="btn-home btn-home-normal">
                   <a target="_blank" rel="noopener noreferrer" href="https://yapi.ymfe.org">
-                    使用文档
+                    docus
                   </a>
                 </Button>
               </div>

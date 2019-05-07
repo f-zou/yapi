@@ -30,15 +30,15 @@ Developers can manage interfaces by using the tools in platform with simple clic
 it is easy to use the yapi-cli to deploy the YApi platform. After server config. run node /xxx_project/server/app.js to start the server
 
 
-    npm install -g yapi-cli --registry https://registry.npm.taobao.org
-    yapi server 
+    npm install -g yapi-en-cli 
+    yapi-en server 
 
 #### update
 
     cd  {project}
-    yapi ls // check yapi version
-    yapi update // update to new version
-    yapi update -v {Version} // update to a version
+    yapi-en ls // check yapi version
+    yapi-en update // update to new version
+    yapi-en update -v {Version} // update to a version
     
 ### Tutorial (chinese)
 * [use YApi to manage API ,docs，tests and mock](https://juejin.im/post/5acc879f6fb9a028c42e8822)
