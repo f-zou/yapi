@@ -286,15 +286,15 @@ const HomeGuest = () => (
             <Card>
               <div className="section-block block-first">
                 <h4>administrator(* N)</h4>
-                <p className="item"> -  Create a group</p>
-                <p className="item"> - Distribution team leader,</p>
-                <p className="item"> -  Manage all member's information</p>
+                <p className="item"> - Create a group</p>
+                <p className="item"> - Distribution team leader</p>
+                <p className="item"> {"- Manage all information of members"}</p>
               </div>
               <div className="section-block block-second">
                 <h4>Leader(* N)</h4>
                 <p className="item"> - Create a project</p>
                 <p className="item"> - Manage group or project information</p>
-                <p className="item"> -  Manage developers and members</p>
+                <p className="item"> - Manage developers and members</p>
               </div>
               <div className="section-block block-third">
                 <h4>Developer(* N) / member(* N)</h4>
@@ -311,7 +311,8 @@ const HomeGuest = () => (
             </p>
             <p className="desc">
               YAPI
-            Introduce the idea of the flat management mode into the rights management of the product. The super administrator has the highest authority and assigns the rights to several group leaders. The super administrator only needs to manage the group leader, and actually manages the YAPI group.            </p>
+            Introduce the idea of the flat management mode into the rights management of the product. The super administrator has the highest authority and assigns the rights to several group leaders. The super administrator only needs to manage the group leader, and actually manages the YAPI group.
+            </p>
           </Col>
         </Row>
       </div>

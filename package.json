@@ -1,6 +1,6 @@
 {
   "name": "@stuttgarter/yapi-en",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "origin-version": "1.7.0",
   "description": "YAPI",
   "main": "server/app.js",
@@ -17,12 +17,12 @@
     "docs": "ydoc build"
   },
   "scripts-info": {
-    "start": "运行生产环境服务器",
-    "install-server": "初始化数据库数据，用于安装",
-    "dev": "运行开发服务器",
-    "dev-server": "运行后端开发服务器",
-    "dev-client": "运行前端开发服务器",
-    "test": "执行测试"
+    "start": "run production ",
+    "install-server": "init db for install",
+    "dev": "run dev server",
+    "dev-server": "run backend dev server",
+    "dev-client": "run client server",
+    "test": "run tests"
   },
   "repository": {
     "type": "git",
