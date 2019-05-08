@@ -6,16 +6,16 @@ import { fetchNewsData } from '../../../reducer/modules/news.js';
 
 const logList = [
   {
-    name: '用户'
+    name: 'user'
   },
   {
-    name: '分组'
+    name: 'group'
   },
   {
-    name: '接口'
+    name: 'interface'
   },
   {
-    name: '项目'
+    name: 'project'
   }
 ];
 @connect(
@@ -58,7 +58,7 @@ class NewsList extends Component {
   render() {
     return (
       <div className="logList">
-        <h3>日志类型</h3>
+        <h3>log category</h3>
         <Menu
           mode="inline"
           selectedKeys={[`${this.state.selectedKeys}`]}

@@ -69,10 +69,10 @@ class NewsTimeline extends Component {
       data = '';
     }
     let pending = this.state.bidden ? (
-      <a className={this.state.bidden}>以上为全部内容</a>
+      <a className={this.state.bidden}>The above is the entire contents</a>
     ) : (
       <a className="loggetMore" onClick={this.getMore.bind(this)}>
-        查看更多
+      see more
       </a>
     );
     if (this.state.loading) {

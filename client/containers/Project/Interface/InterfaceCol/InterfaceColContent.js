@@ -202,7 +202,7 @@ class InterfaceColContent extends Component {
       }
       let project_id = this.props.match.params.id;
       await this.props.fetchInterfaceColList(project_id);
-      message.success('接口集合简介更新成功');
+      message.success('The interface collection is updated successfully');
     });
   };
 
@@ -307,7 +307,7 @@ class InterfaceColContent extends Component {
 
     let result = {
       code: 400,
-      msg: '数据异常',
+      msg: 'Data anomalies',
       validRes: []
     };
 
@@ -354,7 +354,7 @@ class InterfaceColContent extends Component {
         result.code = 0;
         result.validRes = [
           {
-            message: '验证通过'
+            message: 'Verification passed'
           }
         ];
       } else if (validRes.length > 0) {
@@ -490,7 +490,7 @@ class InterfaceColContent extends Component {
 
   openReport = id => {
     if (!this.reports[id]) {
-      return message.warn('还没有生成报告');
+      return message.warn('No reports have been generated yet');
     }
     this.setState({ visible: true, curCaseid: id });
   };
@@ -522,7 +522,7 @@ class InterfaceColContent extends Component {
       enable_script: enableScript
     });
     if (res.data.errcode === 0) {
-      message.success('更新成功');
+      message.success('update completed');
     }
     this.setState({ advVisible: false });
     let currColId = this.currColId;
@@ -567,7 +567,7 @@ class InterfaceColContent extends Component {
 
   copyUrl = url => {
     copy(url);
-    message.success('已经成功复制到剪切板');
+    message.success('Has been successfully copied to the clipboard');
   };
 
   modeChange = mode => {
@@ -604,7 +604,7 @@ class InterfaceColContent extends Component {
       if (res.data.errcode) {
         return message.error(res.data.errmsg);
       }
-      message.success('配置测试集成功');
+      message.success('configuring the test set successfully');
     });
 
     this.setState({
@@ -649,7 +649,7 @@ class InterfaceColContent extends Component {
       {
         property: 'casename',
         header: {
-          label: '用例名称'
+          label: 'use case name'
         },
         props: {
           style: {
@@ -681,16 +681,16 @@ class InterfaceColContent extends Component {
                   title={
                     <span>
                       {' '}
-                      每个用例都有唯一的key，用于获取所匹配接口的响应数据，例如使用{' '}
+            Each use case has a unique key that is used to get the response data of the matched interface, for example{' '}
                       <a
                         href="https://yapi.ymfe.org/documents/case.html#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%8C%E7%BC%96%E8%BE%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"
                         className="link-tooltip"
                         target="blank"
                       >
                         {' '}
-                        变量参数{' '}
+            Variable parameter{' '}
                       </a>{' '}
-                      功能{' '}
+                      features{' '}
                     </span>
                   }
                 >
@@ -716,7 +716,7 @@ class InterfaceColContent extends Component {
       {
         property: 'test_status',
         header: {
-          label: '状态'
+          label: 'status'
         },
         props: {
           style: {
@@ -753,7 +753,7 @@ class InterfaceColContent extends Component {
                 case 400:
                   return (
                     <div>
-                      <Tooltip title="请求异常">
+                      <Tooltip title="Request exception">
                         <Icon
                           type="info-circle"
                           style={{
@@ -766,7 +766,7 @@ class InterfaceColContent extends Component {
                 case 1:
                   return (
                     <div>
-                      <Tooltip title="验证失败">
+                      <Tooltip title="verification failed">
                         <Icon
                           type="exclamation-circle"
                           style={{
@@ -795,14 +795,14 @@ class InterfaceColContent extends Component {
       {
         property: 'path',
         header: {
-          label: '接口路径'
+          label: ' Interface path'
         },
         cell: {
           formatters: [
             (text, { rowData }) => {
               let record = rowData;
               return (
-                <Tooltip title="跳转到对应接口">
+                <Tooltip title="Jump to the corresponding interface">
                   <Link to={`/project/${record.project_id}/interface/api/${record.interface_id}`}>
                     {record.path.length > 23 ? record.path + '...' : record.path}
                   </Link>
@@ -814,7 +814,7 @@ class InterfaceColContent extends Component {
       },
       {
         header: {
-          label: '测试报告'
+          label: 'testing report'
         },
         props: {
           style: {
@@ -828,7 +828,7 @@ class InterfaceColContent extends Component {
                 if (!this.reports[rowData.id]) {
                   return null;
                 }
-                return <Button onClick={() => this.openReport(rowData.id)}>测试报告</Button>;
+                return <Button onClick={() => this.openReport(rowData.id)}>testing report</Button>;
               };
               return <div className="interface-col-table-action">{reportFun()}</div>;
             }
@@ -876,7 +876,7 @@ class InterfaceColContent extends Component {
     return (
       <div className="interface-col">
         <Modal
-            title="通用规则配置"
+            title=" General rule configuration"
             visible={this.state.commonSettingModalVisible}
             onOk={this.handleCommonSetting}
             onCancel={this.cancelCommonSetting}
@@ -886,7 +886,7 @@ class InterfaceColContent extends Component {
           <div className="common-setting-modal">
             <Row className="setting-item">
               <Col className="col-item" span="4">
-                <label>检查HttpCode:&nbsp;<Tooltip title={'检查 http code 是否为 200'}>
+                <label>检查HttpCode:&nbsp;<Tooltip title={'check whether http code is 200'}>
                   <Icon type="question-circle-o" style={{ width: '10px' }} />
                 </Tooltip></label>
               </Col>
@@ -905,24 +905,24 @@ class InterfaceColContent extends Component {
 
             <Row className="setting-item">
               <Col className="col-item"  span="4">
-                <label>检查返回json:&nbsp;<Tooltip title={'检查接口返回数据字段值，比如检查 code 是不是等于 0'}>
+                <label>检查返回json:&nbsp;<Tooltip title={'Check the interface to return the data field value, such as checking if code is equal to 0'}>
                   <Icon type="question-circle-o" style={{ width: '10px' }} />
                 </Tooltip></label>
               </Col>
               <Col  className="col-item" span="6">
-                <Input value={this.state.commonSetting.checkResponseField.name} onChange={this.changeCommonFieldSetting('name')} placeholder="字段名"  />
+                <Input value={this.state.commonSetting.checkResponseField.name} onChange={this.changeCommonFieldSetting('name')} placeholder="field name"  />
               </Col>
               <Col  className="col-item" span="6">
-                <Input  onChange={this.changeCommonFieldSetting('value')}  value={this.state.commonSetting.checkResponseField.value}   placeholder="值"  />
+                <Input  onChange={this.changeCommonFieldSetting('value')}  value={this.state.commonSetting.checkResponseField.value}   placeholder="value"  />
               </Col>
               <Col  className="col-item" span="6">
-                <Switch  onChange={this.changeCommonFieldSetting('enable')}  checked={this.state.commonSetting.checkResponseField.enable}  checkedChildren="开" unCheckedChildren="关"  />
+                <Switch  onChange={this.changeCommonFieldSetting('enable')}  checked={this.state.commonSetting.checkResponseField.enable}  checkedChildren="enable" unCheckedChildren="disable"  />
               </Col>
             </Row>
 
             <Row className="setting-item">
               <Col className="col-item" span="4">
-                <label>检查返回数据结构:&nbsp;<Tooltip title={'只有 response 基于 json-schema 方式定义，该检查才会生效'}>
+                <label>Check return data structure:&nbsp;<Tooltip title={'This check takes effect only if response is defined based on the json-schema method'}>
                   <Icon type="question-circle-o" style={{ width: '10px' }} />
                 </Tooltip></label>
               </Col>
@@ -941,7 +941,7 @@ class InterfaceColContent extends Component {
 
             <Row className="setting-item">
               <Col className="col-item  " span="4">
-                <label>全局测试脚本:&nbsp;<Tooltip title={'在跑自动化测试时，优先调用全局脚本，只有全局脚本通过测试，才会开始跑case自定义的测试脚本'}>
+                <label>Global test script:&nbsp;<Tooltip title={'When running the automated test, the global script need to be called first. Only the global script passes the test, and then the custom test script will be started.'}>
                   <Icon type="question-circle-o" style={{ width: '10px' }} />
                 </Tooltip></label>
               </Col>
@@ -957,7 +957,7 @@ class InterfaceColContent extends Component {
                       }
                     }
                   })
-                }} checked={this.state.commonSetting.checkScript.enable}  checkedChildren="开" unCheckedChildren="关"  /></div>
+                }} checked={this.state.commonSetting.checkScript.enable}  checkedChildren="enable" unCheckedChildren="disable"  /></div>
                 <AceEditor
                   onChange={this.onChangeTest}
                   className="case-script"
@@ -1004,7 +1004,7 @@ class InterfaceColContent extends Component {
                 rel="noopener noreferrer"
                 href="https://yapi.ymfe.org/documents/case.html"
               >
-                <Tooltip title="点击查看文档">
+                <Tooltip title="Click to view the document">
                   <Icon type="question-circle-o" />
                 </Tooltip>
               </a>
@@ -1028,27 +1028,27 @@ class InterfaceColContent extends Component {
                 }}
               >
                 {this.props.curProjectRole !== 'guest' && (
-                  <Tooltip title="在 YApi 服务端跑自动化测试，测试环境不能为私有网络，请确保 YApi 服务器可以访问到自动化测试环境domain">
+                  <Tooltip title="Run the automated test on the YApi server, the test environment can not be a private network, please ensure that the YApi server can access the automated test environment domain">
                     <Button
                       style={{
                         marginRight: '8px'
                       }}
                       onClick={this.autoTests}
                     >
-                      服务端测试
+                    Server test
                     </Button>
                   </Tooltip>
                 )}
                 <Button onClick={this.openCommonSetting} style={{
                         marginRight: '8px'
-                      }} >通用规则配置</Button>
+                      }} >General rule configuration</Button>
                 &nbsp;
                 <Button type="primary" onClick={this.executeTests}>
-                  开始测试
+    start testing
                 </Button>
               </div>
             ) : (
-              <Tooltip title="请安装 cross-request Chrome 插件">
+              <Tooltip title="please install cross-request Chrome plugin">
                 <Button
                   disabled
                   type="primary"
@@ -1057,7 +1057,7 @@ class InterfaceColContent extends Component {
                     marginTop: '8px'
                   }}
                 >
-                  开始测试
+                  start testing
                 </Button>
               </Tooltip>
             )}
@@ -1089,7 +1089,7 @@ class InterfaceColContent extends Component {
           />
         </Table.Provider>
         <Modal
-          title="测试报告"
+          title="tests report"
           width="900px"
           style={{
             minHeight: '500px'
@@ -1102,7 +1102,7 @@ class InterfaceColContent extends Component {
         </Modal>
 
         <Modal
-          title="自定义测试脚本"
+          title="custom test scripts"
           width="660px"
           style={{
             minHeight: '500px'
@@ -1113,7 +1113,7 @@ class InterfaceColContent extends Component {
           maskClosable={false}
         >
           <h3>
-            是否开启:&nbsp;
+            whether to enable:&nbsp;
             <Switch
               checked={this.state.enableScript}
               onChange={e => this.setState({ enableScript: e })}
@@ -1127,7 +1127,7 @@ class InterfaceColContent extends Component {
         </Modal>
         {this.state.autoVisible && (
           <Modal
-            title="服务端自动化测试"
+            title="Server-side automated testing"
             width="780px"
             style={{
               minHeight: '500px'
@@ -1139,8 +1139,8 @@ class InterfaceColContent extends Component {
           >
             <Row type="flex" justify="space-around" className="row" align="top">
               <Col span={3} className="label" style={{ paddingTop: '16px' }}>
-                选择环境
-                <Tooltip title="默认使用测试用例选择的环境">
+            Choose environment
+                <Tooltip title="Default use of test case selection environment">
                   <Icon type="question-circle-o" />
                 </Tooltip>
                 &nbsp;：
@@ -1157,7 +1157,7 @@ class InterfaceColContent extends Component {
             </Row>
             <Row type="flex" justify="space-around" className="row" align="middle">
               <Col span={3} className="label">
-                输出格式：
+                output format：
               </Col>
               <Col span={21}>
                 <Select value={this.state.mode} onChange={this.modeChange}>
@@ -1173,7 +1173,7 @@ class InterfaceColContent extends Component {
             <Row type="flex" justify="space-around" className="row" align="middle">
               <Col span={3} className="label">
                 邮件通知
-                <Tooltip title={'测试不通过时，会给项目组成员发送邮件'}>
+                <Tooltip title={'Send a message to the project team members when the test fails'}>
                   <Icon
                     type="question-circle-o"
                     style={{
@@ -1195,7 +1195,7 @@ class InterfaceColContent extends Component {
             <Row type="flex" justify="space-around" className="row" align="middle">
               <Col span={3} className="label">
                 下载数据
-                <Tooltip title={'开启后，测试数据将被下载到本地'}>
+                <Tooltip title={'Once enabled, the test data will be downloaded to the local'}>
                   <Icon
                     type="question-circle-o"
                     style={{
@@ -1208,8 +1208,8 @@ class InterfaceColContent extends Component {
               <Col span={21}>
                 <Switch
                   checked={this.state.download}
-                  checkedChildren="开"
-                  unCheckedChildren="关"
+                  checkedChildren="enable"
+                  unCheckedChildren="disable"
                   onChange={this.downloadChange}
                 />
               </Col>
@@ -1225,12 +1225,12 @@ class InterfaceColContent extends Component {
               </Col>
               <Col span={3}>
                 <Button className="copy-btn" onClick={() => this.copyUrl(localUrl + autoTestsUrl)}>
-                  复制
+                  copy
                 </Button>
               </Col>
             </Row>
             <div className="autoTestMsg">
-              注：访问该URL，可以测试所有用例，请确保YApi服务器可以访问到环境配置的 domain
+            Note: You can test all use cases by accessing this URL. Please make sure that the YApi server can access the domain configured by the environment
             </div>
           </Modal>
         )}

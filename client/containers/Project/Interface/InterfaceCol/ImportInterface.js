@@ -150,17 +150,17 @@ export default class ImportInterface extends Component {
 
     const columns = [
       {
-        title: '接口名称',
+        title: 'interface name',
         dataIndex: 'title',
         width: '30%'
       },
       {
-        title: '接口路径',
+        title: 'interface path',
         dataIndex: 'path',
         width: '40%'
       },
       {
-        title: '请求方法',
+        title: 'request method',
         dataIndex: 'method',
         render: item => {
           let methodColor = variable.METHOD_COLOR[item ? item.toLowerCase() : 'get'];
@@ -182,7 +182,7 @@ export default class ImportInterface extends Component {
         title: (
           <span>
             状态{' '}
-            <Tooltip title="筛选满足条件的接口集合">
+            <Tooltip title=" Filter the set of interfaces that satisfy the condition">
               <Icon type="question-circle-o" />
             </Tooltip>
           </span>
@@ -192,19 +192,19 @@ export default class ImportInterface extends Component {
           return (
             text &&
             (text === 'done' ? (
-              <span className="tag-status done">已完成</span>
+              <span className="tag-status done">done</span>
             ) : (
-              <span className="tag-status undone">未完成</span>
+              <span className="tag-status undone">not done</span>
             ))
           );
         },
         filters: [
           {
-            text: '已完成',
+            text: 'done',
             value: 'done'
           },
           {
-            text: '未完成',
+            text: 'not done',
             value: 'undone'
           }
         ],
@@ -221,7 +221,7 @@ export default class ImportInterface extends Component {
     return (
       <div>
         <div className="select-project">
-          <span>选择要导入的项目： </span>
+          <span> Select the item to import： </span>
           <Select value={this.state.project} style={{ width: 200 }} onChange={this.onChange}>
             {projectList.map(item => {
               return item.projectname ? (

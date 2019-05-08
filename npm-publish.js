@@ -4,7 +4,7 @@ const packageJson = require ('./package.json');
 const version = "v" + packageJson.version;
 
 if(!version){
-  console.error('version 不能为空')
+  console.error('version can not be empty')
   process.exit(1)
 }
 
@@ -25,5 +25,5 @@ shell.exec ('git push origin ' + version);
 
 console.log('git push success', version)
 
-console.log('正在执行npm发布')
+console.log('npm publishing')
 shell.exec('npm publish')

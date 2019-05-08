@@ -55,14 +55,14 @@ class Login extends Component {
           this.props.loginLdapActions(values).then(res => {
             if (res.payload.data.errcode == 0) {
               this.props.history.replace('/group');
-              message.success('登录成功! ');
+              message.success('success logged in! ');
             }
           });
         } else {
           this.props.loginActions(values).then(res => {
             if (res.payload.data.errcode == 0) {
               this.props.history.replace('/group');
-              message.success('登录成功! ');
+              message.success('login successful! ');
             }
           });
         }
@@ -88,7 +88,7 @@ class Login extends Component {
         ? {}
         : {
             required: true,
-            message: '请输入正确的email!',
+            message: 'please input email with correct format!',
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$/
           };
     return (
@@ -98,7 +98,7 @@ class Login extends Component {
           <FormItem>
             <RadioGroup defaultValue="ldap" onChange={this.handleFormLayoutChange}>
               <Radio value="ldap">LDAP</Radio>
-              <Radio value="normal">普通登录</Radio>
+              <Radio value="normal">login</Radio>
             </RadioGroup>
           </FormItem>
         )}
@@ -116,7 +116,7 @@ class Login extends Component {
         {/* 密码 */}
         <FormItem style={formItemStyle}>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: '请输入密码!' }]
+            rules: [{ required: true, message: 'please input password!' }]
           })(
             <Input
               style={changeHeight}
@@ -135,7 +135,7 @@ class Login extends Component {
             htmlType="submit"
             className="login-form-button"
           >
-            登录
+            login
           </Button>
         </FormItem>
 

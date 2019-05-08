@@ -46,7 +46,7 @@ class Reg extends Component {
         this.props.regActions(values).then(res => {
           if (res.payload.data.errcode == 0) {
             this.props.history.replace('/group');
-            message.success('注册成功! ');
+            message.success('register successful! ');
           }
         });
       }
@@ -56,7 +56,7 @@ class Reg extends Component {
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
-      callback('两次输入的密码不一致啊!');
+      callback('two passwords do not match!');
     } else {
       callback();
     }
@@ -77,7 +77,7 @@ class Reg extends Component {
         {/* 用户名 */}
         <FormItem style={formItemStyle}>
           {getFieldDecorator('userName', {
-            rules: [{ required: true, message: '请输入用户名!' }]
+            rules: [{ required: true, message: 'please input user name!' }]
           })(
             <Input
               style={changeHeight}
@@ -112,7 +112,7 @@ class Reg extends Component {
             rules: [
               {
                 required: true,
-                message: '请输入密码!'
+                message: 'please input password!'
               },
               {
                 validator: this.checkConfirm
@@ -134,7 +134,7 @@ class Reg extends Component {
             rules: [
               {
                 required: true,
-                message: '请再次输入密码密码!'
+                message: 'please input password again!'
               },
               {
                 validator: this.checkPassword
@@ -158,7 +158,7 @@ class Reg extends Component {
             htmlType="submit"
             className="login-form-button"
           >
-            注册
+            register
           </Button>
         </FormItem>
       </Form>

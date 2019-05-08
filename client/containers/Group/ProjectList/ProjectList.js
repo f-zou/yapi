@@ -127,7 +127,7 @@ class ProjectList extends Component {
     const Follow = () => {
       return followProject.length ? (
         <Row>
-          <h3 className="owner-type">我的关注</h3>
+          <h3 className="owner-type">my follows</h3>
           {followProject.map((item, index) => {
             return (
               <Col xs={8} lg={6} xxl={4} key={index}>
@@ -141,7 +141,7 @@ class ProjectList extends Component {
     const NoFollow = () => {
       return noFollow.length ? (
         <Row style={{ borderBottom: '1px solid #eee', marginBottom: '15px' }}>
-          <h3 className="owner-type">我的项目</h3>
+          <h3 className="owner-type">my projects</h3>
           {noFollow.map((item, index) => {
             return (
               <Col xs={8} lg={6} xxl={4} key={index}>
@@ -168,7 +168,7 @@ class ProjectList extends Component {
       <div style={{ paddingTop: '24px' }} className="m-panel card-panel card-panel-s project-list">
         <Row className="project-list-header">
           <Col span={16} style={{ textAlign: 'left' }}>
-            {this.props.currGroup.group_name} 分组共 ({projectData.length}) 个项目
+            {this.props.currGroup.group_name} group has ({projectData.length}) projects
           </Col>
           <Col span={8}>
             {isShow ? (
@@ -176,9 +176,9 @@ class ProjectList extends Component {
                 <Button type="primary">添加项目</Button>
               </Link>
             ) : (
-              <Tooltip title="您没有权限,请联系该分组组长或管理员">
+              <Tooltip title="you do not have permission. please contact team leader or admin">
                 <Button type="primary" disabled>
-                  添加项目
+                  add project
                 </Button>
               </Tooltip>
             )}

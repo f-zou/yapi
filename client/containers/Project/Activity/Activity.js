@@ -30,7 +30,7 @@ class Activity extends Component {
           <div style={{ display: 'none' }} className="logHead">
             {/*<Breadcrumb />*/}
             <div className="projectDes">
-              <p>高效、易用、可部署的API管理平台</p>
+              <p>fficient, easy-to-use and deployable API management platform</p>
             </div>
             <div className="Mockurl">
               <span>Mock地址：</span>

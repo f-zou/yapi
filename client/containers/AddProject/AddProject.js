@@ -81,7 +81,7 @@ class ProjectList extends Component {
         addProject(values).then(res => {
           if (res.payload.data.errcode == 0) {
             form.resetFields();
-            message.success('创建成功! ');
+            message.success('successfull created! ');
             this.props.history.push('/project/' + res.payload.data.data._id + '/interface/api');
           }
         });
@@ -90,7 +90,7 @@ class ProjectList extends Component {
   }
 
   async componentWillMount() {
-    this.props.setBreadcrumb([{ name: '新建项目' }]);
+    this.props.setBreadcrumb([{ name: 'create project' }]);
     if (!this.props.currGroup._id) {
       await this.props.fetchGroupList();
     }
@@ -109,19 +109,19 @@ class ProjectList extends Component {
       <div className="g-row">
         <div className="g-row m-container">
           <Form>
-            <FormItem {...formItemLayout} label="项目名称">
+            <FormItem {...formItemLayout} label="project name">
               {getFieldDecorator('name', {
-                rules: nameLengthLimit('项目')
+                rules: nameLengthLimit('project')
               })(<Input />)}
             </FormItem>
 
-            <FormItem {...formItemLayout} label="所属分组">
+            <FormItem {...formItemLayout} label="group">
               {getFieldDecorator('group', {
                 initialValue: this.state.currGroupId + '',
                 rules: [
                   {
                     required: true,
-                    message: '请选择项目所属的分组!'
+                    message: ' Please select the group to which the project belongs!'
                   }
                 ]
               })(
@@ -148,7 +148,7 @@ class ProjectList extends Component {
               label={
                 <span>
                   基本路径&nbsp;
-                  <Tooltip title="接口基本路径，为空是根路径">
+                  <Tooltip title="Interface basic path, empty means the root path">
                     <Icon type="question-circle-o" />
                   </Tooltip>
                 </span>
@@ -158,18 +158,18 @@ class ProjectList extends Component {
                 rules: [
                   {
                     required: false,
-                    message: '请输入项目基本路径'
+                    message: ' Please enter the path of the project'
                   }
                 ]
               })(<Input onBlur={this.handlePath} />)}
             </FormItem>
 
-            <FormItem {...formItemLayout} label="描述">
+            <FormItem {...formItemLayout} label="description">
               {getFieldDecorator('desc', {
                 rules: [
                   {
                     required: false,
-                    message: '描述不超过144字!',
+                    message: 'description no more than 144 words!',
                     max: 144
                   }
                 ]
@@ -187,8 +187,8 @@ class ProjectList extends Component {
               })(
                 <RadioGroup>
                   <Radio value="private" className="radio">
-                    <Icon type="lock" />私有<br />
-                    <span className="radio-desc">只有组长和项目开发者可以索引并查看项目信息</span>
+                    <Icon type="lock" />private<br />
+                    <span className="radio-desc">Only team leaders and project owner can index and view the project information</span>
                   </Radio>
                   <br />
                   {/* <Radio value="public" className="radio">
@@ -202,7 +202,7 @@ class ProjectList extends Component {
           <Row>
             <Col sm={{ offset: 6 }} lg={{ offset: 3 }}>
               <Button className="m-btn" icon="plus" type="primary" onClick={this.handleOk}>
-                创建项目
+                create project
               </Button>
             </Col>
           </Row>

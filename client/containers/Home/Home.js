@@ -76,7 +76,7 @@ const HomeGuest = () => (
           <Col span={8} className="section-item" key="feat-wrapper-1">
             <Icon type="appstore-o" className="img" />
             <h4 className="title">Project Management</h4>
-            <span className="desc">rovide basic functions for project grouping, project management and interface management </span>
+            <span className="desc">provide basic functions for project grouping, project management and interface management </span>
           </Col>
           <Col span={8} className="section-item" key="feat-wrapper-2">
             <Icon type="api" className="img" />
@@ -104,7 +104,7 @@ const HomeGuest = () => (
         <span className="desc">Mock all you want service here</span>
         <Row className="row-card">
           <Col lg={12} xs={24} className="section-card">
-            <Card title="Mock 规则">
+            <Card title="Mock rules">
               <p className="mock-desc">
                 By learning some simple Mock
                 Template rules make it easy to write interfaces。This will greatly improve the efficiency of defining interfaces。no need to worry about writing Mock data:
@@ -193,7 +193,7 @@ const HomeGuest = () => (
             </Card>
           </Col>
           <Col lg={12} xs={24} className="section-card mock-after">
-            <Card title="生成的 Mock 数据">
+            <Card title="generated Mock data">
               <p className="mock-desc">
             The generated Mock data can be directly used via ajax call.
             an also be used via a server proxy（ No need to modify the a line code）

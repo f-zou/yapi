@@ -22,10 +22,10 @@ import './GroupList.scss';
 
 const tip = (
   <div className="title-container">
-    <h3 className="title">欢迎使用 YApi ~</h3>
+    <h3 className="title">wellcome to use YApi</h3>
     <p>
-      这里的 <b>“个人空间”</b>{' '}
-      是你自己才能看到的分组，你拥有这个分组的全部权限，可以在这个分组里探索 YApi 的功能。
+      here is you <b>“personal space”</b>{' '}
+      this is a group that only visible for you. you have all the permissions of this group.you can explore yapi functions in this group,
     </p>
   </div>
 );
@@ -221,7 +221,7 @@ export default class GroupList extends Component {
           <div className="curr-group">
             <div className="curr-group-name">
               <span className="name">{currGroup.group_name}</span>
-              <Tooltip title="添加分组">
+              <Tooltip title="add group">
                 <a className="editSet">
                   <Icon className="btn" type="folder-add" onClick={this.showModal} />
                 </a>
@@ -234,7 +234,7 @@ export default class GroupList extends Component {
           <div className="group-operate">
             <div className="search">
               <Search
-                placeholder="搜索分类"
+                placeholder="Search category"
                 onChange={this.searchGroup}
                 onSearch={v => this.searchGroup(null, v)}
               />
@@ -284,7 +284,7 @@ export default class GroupList extends Component {
         </div>
         {this.state.addGroupModalVisible ? (
           <Modal
-            title="添加分组"
+            title="add group"
             visible={this.state.addGroupModalVisible}
             onOk={this.addGroup}
             onCancel={this.hideModal}
@@ -292,23 +292,23 @@ export default class GroupList extends Component {
           >
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">分组名：</div>
+                <div className="label">group name：</div>
               </Col>
               <Col span="15">
-                <Input placeholder="请输入分组名称" onChange={this.inputNewGroupName} />
+                <Input placeholder="Please enter a group name" onChange={this.inputNewGroupName} />
               </Col>
             </Row>
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">简介：</div>
+                <div className="label">Introduction：</div>
               </Col>
               <Col span="15">
-                <TextArea rows={3} placeholder="请输入分组描述" onChange={this.inputNewGroupDesc} />
+                <TextArea rows={3} placeholder="Please enter a group description" onChange={this.inputNewGroupDesc} />
               </Col>
             </Row>
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">组长：</div>
+                <div className="label">team leader：</div>
               </Col>
               <Col span="15">
                 <UsernameAutoComplete callbackState={this.onUserSelect} />

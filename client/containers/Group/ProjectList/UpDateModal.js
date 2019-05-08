@@ -191,7 +191,7 @@ class UpDateModal extends Component {
       return (
         <Row key={index} type="flex" justify="space-between" align={index === 0 ? 'middle' : 'top'}>
           <Col span={10} offset={2}>
-            <FormItem label={index === 0 ? <span>环境名称</span> : ''} required={false} key={index}>
+            <FormItem label={index === 0 ? <span>enviroment name</span> : ''} required={false} key={index}>
               {getFieldDecorator(`envs-name-${index}`, {
                 validateTrigger: ['onChange', 'onBlur'],
                 initialValue: envMessage.length !== 0 ? k.name : '',
@@ -202,26 +202,26 @@ class UpDateModal extends Component {
                     validator(rule, value, callback) {
                       if (value) {
                         if (value.length === 0) {
-                          callback('请输入环境域名');
+                          callback('Please enter an environment domain name');
                         } else if (!/\S/.test(value)) {
-                          callback('请输入环境域名');
+                          callback('Please enter an environment domain name');
                         } else if (/prd/.test(value)) {
-                          callback('环境域名不能是"prd"');
+                          callback('domain can not be "prd"');
                         } else {
                           return callback();
                         }
                       } else {
-                        callback('请输入环境域名');
+                        callback('Please enter an environment domain name');
                       }
                     }
                   }
                 ]
-              })(<Input placeholder="请输入环境名称" style={{ width: '90%', marginRight: 8 }} />)}
+              })(<Input placeholder="Please enter an environment domain name" style={{ width: '90%', marginRight: 8 }} />)}
             </FormItem>
           </Col>
           <Col span={10}>
             <FormItem
-              label={index === 0 ? <span>环境域名</span> : ''}
+              label={index === 0 ? <span>Please enter an environmental name</span> : ''}
               required={false}
               key={secondIndex}
             >
@@ -232,25 +232,25 @@ class UpDateModal extends Component {
                   {
                     required: false,
                     whitespace: true,
-                    message: '请输入环境域名',
+                    message: 'Please enter an environment domain name',
                     validator(rule, value, callback) {
                       if (value) {
                         if (value.length === 0) {
-                          callback('请输入环境域名');
+                          callback('Please enter an environment domain name');
                         } else if (!/\S/.test(value)) {
-                          callback('请输入环境域名');
+                          callback('Please enter an environment domain name');
                         } else {
                           return callback();
                         }
                       } else {
-                        callback('请输入环境域名');
+                        callback('Please enter an environment domain name');
                       }
                     }
                   }
                 ]
               })(
                 <Input
-                  placeholder="请输入环境域名"
+                  placeholder="Please enter an environment domain name"
                   style={{ width: '90%', marginRight: 8 }}
                   addonBefore={getFieldDecorator(`envs-protocol-${index}`, {
                     initialValue:
@@ -295,13 +295,13 @@ class UpDateModal extends Component {
         onCancel={this.handleCancel}
       >
         <Form>
-          <FormItem {...formItemLayout} label="项目名称">
+          <FormItem {...formItemLayout} label="project name">
             {getFieldDecorator('name', {
               initialValue: initFormValues.name,
               rules: [
                 {
                   required: true,
-                  message: '请输入项目名称!'
+                  message: 'please input project name!'
                 }
               ]
             })(<Input />)}
@@ -312,7 +312,7 @@ class UpDateModal extends Component {
             label={
               <span>
                 线上域名&nbsp;
-                <Tooltip title="将根据配置的线上域名访问mock数据">
+                <Tooltip title="get mock date via configured domain">
                   <Icon type="question-circle-o" />
                 </Tooltip>
               </span>
@@ -323,7 +323,7 @@ class UpDateModal extends Component {
               rules: [
                 {
                   required: true,
-                  message: '请输入项目线上域名!'
+                  message: 'Please enter the project domain name!'
                 }
               ]
             })(
@@ -342,8 +342,8 @@ class UpDateModal extends Component {
             {...formItemLayout}
             label={
               <span>
-                基本路径&nbsp;
-                <Tooltip title="基本路径为空表示根路径">
+                root path&nbsp;
+                <Tooltip title="The base path is empty to indicate the root path">
                   <Icon type="question-circle-o" />
                 </Tooltip>
               </span>
@@ -354,7 +354,7 @@ class UpDateModal extends Component {
               rules: [
                 {
                   required: false,
-                  message: '请输入项目基本路径! '
+                  message: 'please enter the basic root! '
                 }
               ]
             })(<Input />)}
@@ -366,7 +366,7 @@ class UpDateModal extends Component {
               rules: [
                 {
                   required: false,
-                  message: '请输入描述!'
+                  message: ' Please enter a description!'
                 }
               ]
             })(<TextArea rows={4} />)}
@@ -375,7 +375,7 @@ class UpDateModal extends Component {
           {formItems}
           <FormItem {...formItemLayoutWithOutLabel}>
             <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-              <Icon type="plus" /> 添加环境配置
+              <Icon type="plus" /> Add environment configuration
             </Button>
           </FormItem>
         </Form>
