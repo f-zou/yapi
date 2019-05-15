@@ -68,7 +68,7 @@ class AddInterfaceForm extends Component {
       <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label="接口分类"
+          label="interface category"
         >
           {getFieldDecorator('catid', {
             initialValue: this.props.catid ? this.props.catid + '' : this.props.catdata[0]._id + ''
@@ -82,22 +82,22 @@ class AddInterfaceForm extends Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="接口名称"
+          label="interface name"
         >
           {getFieldDecorator('title', {
-            rules: nameLengthLimit('接口')
+            rules: nameLengthLimit('interface')
           })(
-            <Input placeholder="接口名称" />
+            <Input placeholder="interface name" />
             )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="接口路径"
+          label="interface path"
         >
           {getFieldDecorator('path', {
             rules: [{
-              required: true, message: '请输入接口路径!'
+              required: true, message: 'please input interface path!'
             }]
           })(
             <Input onBlur={this.handlePath} addonBefore={prefixSelector} placeholder="/path" />
@@ -105,18 +105,18 @@ class AddInterfaceForm extends Component {
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="注"
+          label="note"
         >
-          <span style={{ color: "#929292" }}>详细的接口数据可以在编辑页面中添加</span>
+          <span style={{ color: "#929292" }}>Detailed interface data can be added to the edit page</span>
         </FormItem>
         <FormItem className="catModalfoot" wrapperCol={{ span: 24, offset: 8 }} >
-          <Button onClick={this.props.onCancel} style={{ marginRight: "10px" }}  >取消</Button>
+          <Button onClick={this.props.onCancel} style={{ marginRight: "10px" }}  >cancel</Button>
           <Button
             type="primary"
             htmlType="submit"
             disabled={hasErrors(getFieldsError())}
           >
-            提交
+            submit
           </Button>
         </FormItem>
 

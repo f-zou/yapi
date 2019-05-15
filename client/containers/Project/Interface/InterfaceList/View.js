@@ -39,13 +39,13 @@ class View extends Component {
     if (req_body_type === 'form') {
       const columns = [
         {
-          title: '参数名称',
+          title: 'parameter name',
           dataIndex: 'name',
           key: 'name',
           width: 140
         },
         {
-          title: '参数类型',
+          title: 'parameter type',
           dataIndex: 'type',
           key: 'type',
           width: 100,
@@ -53,23 +53,23 @@ class View extends Component {
             text = text || '';
             return text.toLowerCase() === 'text' ? (
               <span>
-                <i className="query-icon text">T</i>文本
+                <i className="query-icon text">T</i>text
               </span>
             ) : (
               <span>
-                <Icon type="file" className="query-icon" />文件
+                <Icon type="file" className="query-icon" />file
               </span>
             );
           }
         },
         {
-          title: '是否必须',
+          title: 'whether mandatory',
           dataIndex: 'required',
           key: 'required',
           width: 100
         },
         {
-          title: '示例',
+          title: 'exmaple',
           dataIndex: 'example',
           key: 'example',
           width: 80,
@@ -78,7 +78,7 @@ class View extends Component {
           }
         },
         {
-          title: '备注',
+          title: 'remark',
           dataIndex: 'value',
           key: 'value',
           render(_, item) {
@@ -95,7 +95,7 @@ class View extends Component {
             name: item.name,
             value: item.desc,
             example: item.example,
-            required: item.required == 0 ? '否' : '是',
+            required: item.required == 0 ? 'no' : 'yes',
             type: item.type
           });
         });
@@ -157,19 +157,19 @@ class View extends Component {
   req_query(query) {
     const columns = [
       {
-        title: '参数名称',
+        title: 'parameter name',
         dataIndex: 'name',
         width: 140,
         key: 'name'
       },
       {
-        title: '是否必须',
+        title: 'whether mandatory',
         width: 100,
         dataIndex: 'required',
         key: 'required'
       },
       {
-        title: '示例',
+        title: 'example',
         dataIndex: 'example',
         key: 'example',
         width: 80,
@@ -178,7 +178,7 @@ class View extends Component {
         }
       },
       {
-        title: '备注',
+        title: 'remark',
         dataIndex: 'value',
         key: 'value',
         render(_, item) {
@@ -195,7 +195,7 @@ class View extends Component {
           name: item.name,
           value: item.desc,
           example: item.example,
-          required: item.required == 0 ? '否' : '是'
+          required: item.required == 0 ? 'no' : 'yes'
         });
       });
     }
@@ -238,16 +238,16 @@ class View extends Component {
 
   copyUrl = url => {
     copy(url);
-    message.success('已经成功复制到剪切板');
+    message.success('successfully copied to the clipboard');
   };
 
   flagMsg = (mock, strice) => {
     if (mock && strice) {
-      return <span>( 全局mock & 严格模式 )</span>;
+      return <span>( Global mock & strict mode )</span>;
     } else if (!mock && strice) {
-      return <span>( 严格模式 )</span>;
+      return <span>( strict mode )</span>;
     } else if (mock && !strice) {
-      return <span>( 全局mock )</span>;
+      return <span>( global mock )</span>;
     } else {
       return;
     }
@@ -260,7 +260,7 @@ class View extends Component {
         dataSource.push({
           key: i,
           name: item.name,
-          required: item.required == 0 ? '否' : '是',
+          required: item.required == 0 ? 'no' : 'yes',
           value: item.value,
           example: item.example,
           desc: item.desc
@@ -281,13 +281,13 @@ class View extends Component {
     }
     const req_params_columns = [
       {
-        title: '参数名称',
+        title: 'parameter name',
         dataIndex: 'name',
         key: 'name',
         width: 140
       },
       {
-        title: '示例',
+        title: 'example',
         dataIndex: 'example',
         key: 'example',
         width: 80,
@@ -296,7 +296,7 @@ class View extends Component {
         }
       },
       {
-        title: '备注',
+        title: 'remark',
         dataIndex: 'desc',
         key: 'desc',
         render(_, item) {
@@ -307,25 +307,25 @@ class View extends Component {
 
     const columns = [
       {
-        title: '参数名称',
+        title: 'parameter name',
         dataIndex: 'name',
         key: 'name',
         width: '200px'
       },
       {
-        title: '参数值',
+        title: 'parameter name',
         dataIndex: 'value',
         key: 'value',
         width: '300px'
       },
       {
-        title: '是否必须',
+        title: 'whether mandatory',
         dataIndex: 'required',
         key: 'required',
         width: '100px'
       },
       {
-        title: '示例',
+        title: 'example',
         dataIndex: 'example',
         key: 'example',
         width: '80px',
@@ -334,7 +334,7 @@ class View extends Component {
         }
       },
       {
-        title: '备注',
+        title: 'Remark',
         dataIndex: 'desc',
         key: 'desc',
         render(_, item) {
@@ -343,8 +343,8 @@ class View extends Component {
       }
     ];
     let status = {
-      undone: '未完成',
-      done: '已完成'
+      undone: 'incomplete',
+      done: 'complete'
     };
 
     let bodyShow =
@@ -377,18 +377,18 @@ class View extends Component {
     let res = (
       <div className="caseContainer">
         <h2 className="interface-title" style={{ marginTop: 0 }}>
-          基本信息
+       Basic Information
         </h2>
         <div className="panel-view">
           <Row className="row">
             <Col span={4} className="colKey">
-              接口名称：
+              interface name：
             </Col>
             <Col span={8} className="colName">
               {title}
             </Col>
             <Col span={4} className="colKey">
-              创&ensp;建&ensp;人：
+              creater：
             </Col>
             <Col span={8} className="colValue">
               <Link className="user-name" to={'/user/profile/' + uid}>
@@ -405,7 +405,7 @@ class View extends Component {
               {status[this.props.curData.status]}
             </Col>
             <Col span={4} className="colKey">
-              更新时间：
+              update time：
             </Col>
             <Col span={8}>{formatTime(up_time)}</Col>
           </Row>
@@ -422,7 +422,7 @@ class View extends Component {
             )}
           <Row className="row">
             <Col span={4} className="colKey">
-              接口路径：
+        Interface path：
             </Col>
             <Col
               span={18}
@@ -440,7 +440,7 @@ class View extends Component {
                 {this.props.currProject.basepath}
                 {this.props.curData.path}
               </span>
-              <Tooltip title="复制路径">
+              <Tooltip title="copy path">
                 <Icon
                   type="copy"
                   className="interface-url-icon"
@@ -452,7 +452,7 @@ class View extends Component {
           </Row>
           <Row className="row">
             <Col span={4} className="colKey">
-              Mock地址：
+              Mock  address：
             </Col>
             <Col span={18} className="colValue">
               {this.flagMsg(this.props.currProject.is_mock_open, this.props.currProject.strice)}
@@ -493,7 +493,7 @@ class View extends Component {
               </Row>
             )}
         </div>
-        {this.props.curData.desc && <h2 className="interface-title">备注</h2>}
+        {this.props.curData.desc && <h2 className="interface-title">remark</h2>}
         {this.props.curData.desc && (
           <div
             className="tui-editor-contents"
@@ -506,7 +506,7 @@ class View extends Component {
         </h2>
         {req_dataSource.length ? (
           <div className="colHeader">
-            <h3 className="col-title">路径参数：</h3>
+            <h3 className="col-title">Path parameter：</h3>
             <Table
               bordered
               size="small"
@@ -562,7 +562,7 @@ class View extends Component {
               )}
         </div>
 
-        <h2 className="interface-title">返回数据</h2>
+        <h2 className="interface-title">return data</h2>
         {this.res_body(
           this.props.curData.res_body_type,
           this.props.curData.res_body,

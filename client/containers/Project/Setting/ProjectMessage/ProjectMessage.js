@@ -124,7 +124,7 @@ class ProjectMessage extends Component {
           .then(res => {
             if (res.payload.data.errcode == 0) {
               this.props.getProject(this.props.projectId);
-              message.success('修改成功! ');
+              message.success('modified successfully! ');
 
               // 如果如果项目所在的分组位置发生改变
               this.props.fetchGroupMsg(group_id);
@@ -154,17 +154,17 @@ class ProjectMessage extends Component {
   showConfirm = () => {
     let that = this;
     confirm({
-      title: '确认删除 ' + that.props.projectMsg.name + ' 项目吗？',
+      title: 'sure to delete ' + that.props.projectMsg.name + ' project？',
       content: (
         <div style={{ marginTop: '10px', fontSize: '13px', lineHeight: '25px' }}>
           <Alert
-            message="警告：此操作非常危险,会删除该项目下面所有接口，并且无法恢复!"
+            message="Warning: This operation is very dangerous, all interfaces below the project will be deleted and cannot be recovered!"
             type="warning"
             banner
           />
           <div style={{ marginTop: '16px' }}>
             <p style={{ marginBottom: '8px' }}>
-              <b>请输入项目名称确认此操作:</b>
+              <b>please input the project name to delete:</b>
             </p>
             <Input id="project_name" size="large" />
           </div>
@@ -173,14 +173,14 @@ class ProjectMessage extends Component {
       onOk() {
         let groupName = trim(document.getElementById('project_name').value);
         if (that.props.projectMsg.name !== groupName) {
-          message.error('项目名称有误');
+          message.error('project name is incorrect');
           return new Promise((resolve, reject) => {
             reject('error');
           });
         } else {
           that.props.delProject(that.props.projectId).then(res => {
             if (res.payload.data.errcode == 0) {
-              message.success('删除成功!');
+              message.success('delete successfully!');
               that.props.history.push('/group/' + that.props.projectMsg.group_id);
             }
           });
@@ -231,7 +231,7 @@ class ProjectMessage extends Component {
       '//' +
       location.hostname +
       (location.port !== '' ? ':' + location.port : '') +
-      `/mock/${projectMsg._id}${projectMsg.basepath}+$接口请求路径`;
+      `/mock/${projectMsg._id}${projectMsg.basepath}+$interface request path`;
     let initFormValues = {};
     const {
       name,
@@ -315,13 +315,13 @@ class ProjectMessage extends Component {
           </Row>
           <hr className="breakline" />
           <Form>
-            <FormItem {...formItemLayout} label="项目ID">
+            <FormItem {...formItemLayout} label="project id">
               <span>{this.props.projectMsg._id}</span>
             </FormItem>
-            <FormItem {...formItemLayout} label="项目名称">
+            <FormItem {...formItemLayout} label="project name">
               {getFieldDecorator('name', {
                 initialValue: initFormValues.name,
-                rules: nameLengthLimit('项目')
+                rules: nameLengthLimit('project')
               })(<Input />)}
             </FormItem>
             <FormItem {...formItemLayout} label="所属分组">

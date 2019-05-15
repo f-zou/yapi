@@ -151,7 +151,7 @@ class InterfaceMenu extends Component {
       if (res.data.errcode !== 0) {
         return message.error(res.data.errmsg);
       }
-      message.success('接口添加成功');
+      message.success('the interface was added successfully');
       let interfaceId = res.data.data._id;
       this.props.history.push('/project/' + this.props.projectId + '/interface/api/' + interfaceId);
       this.getList();
@@ -170,7 +170,7 @@ class InterfaceMenu extends Component {
       if (res.data.errcode !== 0) {
         return message.error(res.data.errmsg);
       }
-      message.success('接口分类添加成功');
+      message.success('the category of interface was added successfully');
       this.getList();
       this.props.getProject(data.project_id);
       this.setState({
@@ -192,7 +192,7 @@ class InterfaceMenu extends Component {
       if (res.data.errcode !== 0) {
         return message.error(res.data.errmsg);
       }
-      message.success('接口分类更新成功');
+      message.success('categories of interface were successfully updated ');
       this.getList();
       this.props.getProject(data.project_id);
       this.setState({
@@ -206,10 +206,10 @@ class InterfaceMenu extends Component {
     let id = data._id;
     let catid = data.catid;
     const ref = confirm({
-      title: '您确认删除此接口????',
-      content: '温馨提示：接口删除后，无法恢复',
-      okText: '确认',
-      cancelText: '取消',
+      title: 'are you sure to delete????',
+      content: 'tips：interface can not recovered after deleting',
+      okText: 'confirm',
+      cancelText: 'cancel',
       async onOk() {
         await that.props.deleteInterfaceData(id, that.props.projectId);
         await that.getList();
@@ -228,10 +228,10 @@ class InterfaceMenu extends Component {
   showDelCatConfirm = catid => {
     let that = this;
     const ref = confirm({
-      title: '确定删除此接口分类吗？',
-      content: '温馨提示：该操作会删除该分类下所有接口，接口删除后无法恢复',
-      okText: '确认',
-      cancelText: '取消',
+      title: 'are you sure to delete this category of interface？',
+      content: 'tips：this operation will delete all the interface under this category . They cannot be recovered after deleting.',
+      okText: 'confirm',
+      cancelText: 'cancel',
       async onOk() {
         await that.props.deleteInterfaceCatData(catid, that.props.projectId);
         await that.getList();
@@ -259,7 +259,7 @@ class InterfaceMenu extends Component {
       if (res.data.errcode !== 0) {
         return message.error(res.data.errmsg);
       }
-      message.success('接口添加成功');
+      message.success('interface successfully added');
       let interfaceId = res.data.data._id;
       await this.getList();
       this.props.history.push('/project/' + this.props.projectId + '/interface/api/' + interfaceId);
@@ -366,17 +366,17 @@ class InterfaceMenu extends Component {
     // let menuList = this.state.list;
     const searchBox = (
       <div className="interface-filter">
-        <Input onChange={this.onFilter} value={this.state.filter} placeholder="搜索接口" />
+        <Input onChange={this.onFilter} value={this.state.filter} placeholder="search interface" />
         <Button
           type="primary"
           onClick={() => this.changeModal('add_cat_modal_visible', true)}
           className="btn-filter"
         >
-          添加分类
+          add category
         </Button>
         {this.state.visible ? (
           <Modal
-            title="添加接口"
+            title="add interface"
             visible={this.state.visible}
             onCancel={() => this.changeModal('visible', false)}
             footer={null}
@@ -395,7 +395,7 @@ class InterfaceMenu extends Component {
 
         {this.state.add_cat_modal_visible ? (
           <Modal
-            title="添加分类"
+            title="add category"
             visible={this.state.add_cat_modal_visible}
             onCancel={() => this.changeModal('add_cat_modal_visible', false)}
             footer={null}
@@ -412,7 +412,7 @@ class InterfaceMenu extends Component {
 
         {this.state.change_cat_modal_visible ? (
           <Modal
-            title="修改分类"
+            title="modify category"
             visible={this.state.change_cat_modal_visible}
             onCancel={() => this.changeModal('change_cat_modal_visible', false)}
             footer={null}
@@ -476,7 +476,7 @@ class InterfaceMenu extends Component {
                 {item.title}
               </Link>
               <div className="btns">
-                <Tooltip title="删除接口">
+                <Tooltip title="delete interface">
                   <Icon
                     type="delete"
                     className="interface-delete-icon"
@@ -487,7 +487,7 @@ class InterfaceMenu extends Component {
                     style={{ display: this.state.delIcon == item._id ? 'block' : 'none' }}
                   />
                 </Tooltip>
-                <Tooltip title="复制接口">
+                <Tooltip title="copy interface">
                   <Icon
                     type="copy"
                     className="interface-delete-icon"
@@ -549,7 +549,7 @@ class InterfaceMenu extends Component {
                     to={'/project/' + matchParams.id + '/interface/api'}
                   >
                     <Icon type="folder" style={{ marginRight: 5 }} />
-                    全部接口
+                    all interfaces
                   </Link>
                 }
                 key="root"
@@ -575,7 +575,7 @@ class InterfaceMenu extends Component {
                           {item.name}
                         </Link>
                         <div className="btns">
-                          <Tooltip title="删除分类">
+                          <Tooltip title="delete category">
                             <Icon
                               type="delete"
                               className="interface-delete-icon"
@@ -586,7 +586,7 @@ class InterfaceMenu extends Component {
                               style={{ display: this.state.delIcon == item._id ? 'block' : 'none' }}
                             />
                           </Tooltip>
-                          <Tooltip title="修改分类">
+                          <Tooltip title="modify category">
                             <Icon
                               type="edit"
                               className="interface-delete-icon"
@@ -600,7 +600,7 @@ class InterfaceMenu extends Component {
                               }}
                             />
                           </Tooltip>
-                          <Tooltip title="添加接口">
+                          <Tooltip title="add interface">
                             <Icon
                               type="plus"
                               className="interface-delete-icon"

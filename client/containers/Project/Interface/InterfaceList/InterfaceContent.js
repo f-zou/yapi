@@ -34,7 +34,7 @@ class Content extends Component {
   };
   constructor(props) {
     super(props);
-    this.title = 'YApi-高效、易用、功能强大的可视化接口管理平台';
+    this.title = 'YApi-Efficient, easy to use, powerful visual interface management platform';
     this.state = {
       curtab: 'view',
       visible: false,
@@ -114,15 +114,15 @@ class Content extends Component {
     let InterfaceTabs = {
       view: {
         component: View,
-        name: '预览'
+        name: 'view'
       },
       edit: {
         component: Edit,
-        name: '编辑'
+        name: 'edit'
       },
       run: {
         component: Run,
-        name: '运行'
+        name: 'ru'
       }
     };
 
@@ -153,26 +153,26 @@ class Content extends Component {
           when={this.state.curtab === 'edit' && this.props.editStatus ? true : false}
           message={() => {
             // this.showModal();
-            return '离开页面会丢失当前编辑的内容，确定要离开吗？';
+            return 'eaving the page will lose the content of the current edit, are you sure you want to leave？';
           }}
         />
         {tabs}
         {tabContent}
         {this.state.visible && (
           <Modal
-            title="你即将离开编辑页面"
+            title="You are leaving the editor page"
             visible={this.state.visible}
             onCancel={this.handleCancel}
             footer={[
               <Button key="back" onClick={this.handleCancel}>
-                取 消
+               cancel
               </Button>,
               <Button key="submit" onClick={this.handleOk}>
-                确 定
+                confirm
               </Button>
             ]}
           >
-            <p>离开页面会丢失当前编辑的内容，确定要离开吗？</p>
+            <p>eaving the page will lose the content of the current edit, are you sure you want to leave？</p>
           </Modal>
         )}
       </div>

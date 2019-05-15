@@ -140,7 +140,7 @@ class ProjectMember extends Component {
             inputRole: 'dev',
             inputUids: []
           });
-          message.success(`添加成功! 已成功添加 ${addLength} 人，其中 ${existLength} 人已存在`);
+          message.success(`Added successfully! Successfully added ${addLength} user， ${existLength} of them allready exist`);
           this.reFetchList(); // 添加成功后重新获取分组成员列表
         }
       });
@@ -238,7 +238,7 @@ class ProjectMember extends Component {
     const columns = [
       {
         title:
-          this.props.projectMsg.name + ' 项目成员 (' + this.state.projectMemberList.length + ') 人',
+          this.props.projectMsg.name + ' project members (' + this.state.projectMemberList.length + ') ',
         dataIndex: 'username',
         key: 'username',
         render: (text, record) => {
@@ -246,12 +246,12 @@ class ProjectMember extends Component {
             <div className="m-user">
               <img src={'/api/user/avatar?uid=' + record.uid} className="m-user-img" />
               <p className="m-user-name">{text}</p>
-              <Tooltip placement="top" title="邮件通知">
+              <Tooltip placement="top" title="Mail notification">
                 <span>
                   <Switch
                     size="small"
-                    checkedChildren="开"
-                    unCheckedChildren="关"
+                    checkedChildren="enable"
+                    unCheckedChildren="disable"
                     checked={record.email_notice}
                     disabled={!(isEmailChangeEable || record.uid === this.props.uid)}
                     onChange={e => this.changeEmailNotice(e, record.uid)}
@@ -267,10 +267,10 @@ class ProjectMember extends Component {
           this.state.role === 'owner' || this.state.role === 'admin' ? (
             <div className="btn-container">
               <Button className="btn" type="primary" icon="plus" onClick={this.showAddMemberModal}>
-                添加成员
+          Add Members
               </Button>
               <Button className="btn" icon="plus" onClick={this.showImportMemberModal}>
-                批量导入成员
+          Batch Import members
               </Button>
             </div>
           ) : (
@@ -287,15 +287,15 @@ class ProjectMember extends Component {
                   className="select"
                   onChange={this.changeUserRole}
                 >
-                  <Option value={'owner-' + record.uid}>组长</Option>
-                  <Option value={'dev-' + record.uid}>开发者</Option>
-                  <Option value={'guest-' + record.uid}>访客</Option>
+                  <Option value={'owner-' + record.uid}>team Leader</Option>
+                  <Option value={'dev-' + record.uid}>developer</Option>
+                  <Option value={'guest-' + record.uid}>visitor</Option>
                 </Select>
                 <Popconfirm
                   placement="topRight"
-                  title="你确定要删除吗? "
+                  title="are you sure to delete? "
                   onConfirm={this.deleteConfirm(record.uid)}
-                  okText="确定"
+                  okText="confirm"
                   cancelText=""
                 >
                   <Button type="danger" icon="delete" className="btn-danger" />
@@ -305,11 +305,11 @@ class ProjectMember extends Component {
           } else {
             // 非管理员可以看到权限 但无法修改
             if (record.role === 'owner') {
-              return '组长';
+              return 'team leader';
             } else if (record.role === 'dev') {
-              return '开发者';
+              return 'developer';
             } else if (record.role === 'guest') {
-              return '访客';
+              return 'visitor';
             } else {
               return '';
             }
@@ -329,14 +329,14 @@ class ProjectMember extends Component {
         <div className="m-panel">
           {this.state.visible ? (
             <Modal
-              title="添加成员"
+              title="add members"
               visible={this.state.visible}
               onOk={this.handleOk}
               onCancel={this.handleCancel}
             >
               <Row gutter={6} className="modal-input">
                 <Col span="5">
-                  <div className="label usernamelabel">用户名: </div>
+                  <div className="label usernamelabel">user name: </div>
                 </Col>
                 <Col span="15">
                   <UsernameAutoComplete callbackState={this.onUserSelect} />
@@ -344,13 +344,13 @@ class ProjectMember extends Component {
               </Row>
               <Row gutter={6} className="modal-input">
                 <Col span="5">
-                  <div className="label usernamelabel">权限: </div>
+                  <div className="label usernamelabel">Permission: </div>
                 </Col>
                 <Col span="15">
                   <Select defaultValue="dev" className="select" onChange={this.changeNewMemberRole}>
-                    <Option value="owner">组长</Option>
-                    <Option value="dev">开发者</Option>
-                    <Option value="guest">访客</Option>
+                    <Option value="owner">team leader</Option>
+                    <Option value="dev">developer</Option>
+                    <Option value="guest">visitor</Option>
                   </Select>
                 </Col>
               </Row>
@@ -359,7 +359,7 @@ class ProjectMember extends Component {
             ''
           )}
           <Modal
-            title="批量导入成员"
+            title="Batch Import members"
             visible={this.state.modalVisible}
             onOk={this.handleModalOk}
             onCancel={this.handleModalCancel}
@@ -372,7 +372,7 @@ class ProjectMember extends Component {
                 <Select
                   showSearch
                   style={{ width: 200 }}
-                  placeholder="请选择项目名称"
+                  placeholder="Please select a project name"
                   optionFilterProp="children"
                   onChange={this.handleChange}
                 >
@@ -392,7 +392,7 @@ class ProjectMember extends Component {
           <Card
             bordered={false}
             title={
-              this.state.groupName + ' 分组成员 ' + '(' + this.state.groupMemberList.length + ') 人'
+              this.state.groupName + ' group member ' + '(' + this.state.groupMemberList.length + ') '
             }
             hoverable={true}
             className="setting-group"
@@ -415,7 +415,7 @@ class ProjectMember extends Component {
                       {item.username}
                       {item.uid === this.props.uid ? (
                         <Badge
-                          count={'我'}
+                          count={'i'}
                           style={{
                             backgroundColor: '#689bd0',
                             fontSize: '13px',
@@ -425,9 +425,9 @@ class ProjectMember extends Component {
                         />
                       ) : null}
                     </p>
-                    {item.role === 'owner' ? <p className="item-role">组长</p> : null}
-                    {item.role === 'dev' ? <p className="item-role">开发者</p> : null}
-                    {item.role === 'guest' ? <p className="item-role">访客</p> : null}
+                    {item.role === 'owner' ? <p className="item-role">teamleader</p> : null}
+                    {item.role === 'dev' ? <p className="item-role">developer</p> : null}
+                    {item.role === 'guest' ? <p className="item-role">visitor</p> : null}
                   </div>
                 );
               })

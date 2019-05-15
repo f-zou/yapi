@@ -36,29 +36,29 @@ class AddInterfaceForm extends Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem {...formItemLayout} label="分类名">
+        <FormItem {...formItemLayout} label="Category name">
           {getFieldDecorator('name', {
             rules: [
               {
                 required: true,
-                message: '请输入分类名称!'
+                message: 'please input category name!'
               }
             ],
             initialValue: this.props.catdata ? this.props.catdata.name || null : null
-          })(<Input placeholder="分类名称" />)}
+          })(<Input placeholder="category name" />)}
         </FormItem>
-        <FormItem {...formItemLayout} label="备注">
+        <FormItem {...formItemLayout} label="note">
           {getFieldDecorator('desc', {
             initialValue: this.props.catdata ? this.props.catdata.desc || null : null
-          })(<Input placeholder="备注" />)}
+          })(<Input placeholder="note" />)}
         </FormItem>
 
         <FormItem className="catModalfoot" wrapperCol={{ span: 24, offset: 8 }}>
           <Button onClick={this.props.onCancel} style={{ marginRight: '10px' }}>
-            取消
+            cancel
           </Button>
           <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
-            提交
+            submit
           </Button>
         </FormItem>
       </Form>
