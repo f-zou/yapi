@@ -8,9 +8,9 @@ const interfaceColModel = require('../models/interfaceCol.js');
 const interfaceCaseModel = require('../models/interfaceCase.js');
 
 const rolename = {
-  owner: '组长',
-  dev: '开发者',
-  guest: '访客'
+  owner: 'owner',
+  dev: 'developer',
+  guest: 'guest'
 };
 
 class groupController extends baseController {
@@ -104,7 +104,7 @@ class groupController extends baseController {
       let role = await this.getProjectRole(params.id, 'group');
       result.role = role;
       if (result.type === 'private') {
-        result.group_name = '个人空间';
+        result.group_name = 'personal space';
       }
       ctx.body = yapi.commons.resReturn(result);
     }
@@ -154,7 +154,7 @@ class groupController extends baseController {
     let checkRepeat = await groupInst.checkRepeat(params.group_name);
 
     if (checkRepeat > 0) {
-      return (ctx.body = yapi.commons.resReturn(null, 401, '项目分组名已存在'));
+      return (ctx.body = yapi.commons.resReturn(null, 401, ' Project group name already exists'));
     }
 
     let data = {
@@ -307,10 +307,10 @@ class groupController extends baseController {
 
     var check = await groupInst.checkMemberRepeat(params.id, params.member_uid);
     if (check === 0) {
-      return (ctx.body = yapi.commons.resReturn(null, 400, '分组成员不存在'));
+      return (ctx.body = yapi.commons.resReturn(null, 400, 'Group member does not exist'));
     }
     if ((await this.checkAuth(params.id, 'group', 'danger')) !== true) {
-      return (ctx.body = yapi.commons.resReturn(null, 405, '没有权限'));
+      return (ctx.body = yapi.commons.resReturn(null, 405, 'Permission denied'));
     }
 
     params.role = ['owner', 'dev', 'guest'].find(v => v === params.role) || 'dev';
@@ -366,10 +366,10 @@ class groupController extends baseController {
     let groupInst = yapi.getInst(groupModel);
     var check = await groupInst.checkMemberRepeat(params.id, params.member_uid);
     if (check === 0) {
-      return (ctx.body = yapi.commons.resReturn(null, 400, '分组成员不存在'));
+      return (ctx.body = yapi.commons.resReturn(null, 400, 'Group member does not exist'));
     }
     if ((await this.checkAuth(params.id, 'group', 'danger')) !== true) {
-      return (ctx.body = yapi.commons.resReturn(null, 405, '没有权限'));
+      return (ctx.body = yapi.commons.resReturn(null, 405, 'Permission denied'));
     }
 
     let result = await groupInst.delMember(params.id, params.member_uid);
@@ -377,7 +377,7 @@ class groupController extends baseController {
 
     let groupUserdata = await this.getUserdata(params.member_uid, params.role);
     yapi.commons.saveLog({
-      content: `<a href="/user/profile/${this.getUid()}">${username}</a> 删除了分组成员 <a href="/user/profile/${
+      content: `<a href="/user/profile/${this.getUid()}">${username}</a> Group member deleted <a href="/user/profile/${
         params.member_uid
       }">${groupUserdata ? groupUserdata.username : ''}</a>`,
       type: 'group',
@@ -439,7 +439,7 @@ class groupController extends baseController {
     }
     if (privateGroup) {
       privateGroup = privateGroup.toObject();
-      privateGroup.group_name = '个人空间';
+      privateGroup.group_name = 'personal space';
       privateGroup.role = 'owner';
       newResult.unshift(privateGroup);
     }
@@ -500,15 +500,15 @@ class groupController extends baseController {
     let params = ctx.params;
 
     if ((await this.checkAuth(params.id, 'group', 'danger')) !== true) {
-      return (ctx.body = yapi.commons.resReturn(null, 405, '没有权限'));
+      return (ctx.body = yapi.commons.resReturn(null, 405, 'permission denied'));
     }
 
     let result = await groupInst.up(params.id, params);
     let username = this.getUsername();
     yapi.commons.saveLog({
-      content: `<a href="/user/profile/${this.getUid()}">${username}</a> 更新了 <a href="/group/${
+      content: `<a href="/user/profile/${this.getUid()}">${username}</a> updated <a href="/group/${
         params.id
-      }">${params.group_name}</a> 分组`,
+      }">${params.group_name}</a> group`,
       type: 'group',
       uid: this.getUid(),
       username: username,

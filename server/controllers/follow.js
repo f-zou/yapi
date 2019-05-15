@@ -29,7 +29,7 @@ class followController extends baseController {
     // limit = ctx.request.query.limit || 10;
 
     if (!uid) {
-      return (ctx.body = yapi.commons.resReturn(null, 400, '用户id不能为空'));
+      return (ctx.body = yapi.commons.resReturn(null, 400, 'User id cannot be empty'));
     }
 
     try {
@@ -59,13 +59,13 @@ class followController extends baseController {
       uid = this.getUid();
 
     if (!params.projectid) {
-      return (ctx.body = yapi.commons.resReturn(null, 400, '项目id不能为空'));
+      return (ctx.body = yapi.commons.resReturn(null, 400, 'User id cannot be empty'));
     }
 
     let checkRepeat = await this.Model.checkProjectRepeat(uid, params.projectid);
 
     if (checkRepeat == 0) {
-      return (ctx.body = yapi.commons.resReturn(null, 401, '项目未关注'));
+      return (ctx.body = yapi.commons.resReturn(null, 401, 'Project is not followed'));
     }
 
     try {
@@ -98,13 +98,13 @@ class followController extends baseController {
     let uid = this.getUid();
 
     if (!params.projectid) {
-      return (ctx.body = yapi.commons.resReturn(null, 400, '项目id不能为空'));
+      return (ctx.body = yapi.commons.resReturn(null, 400, 'User id cannot be empty'));
     }
 
     let checkRepeat = await this.Model.checkProjectRepeat(uid, params.projectid);
 
     if (checkRepeat) {
-      return (ctx.body = yapi.commons.resReturn(null, 401, '项目已关注'));
+      return (ctx.body = yapi.commons.resReturn(null, 401, 'project is followed'));
     }
 
     try {

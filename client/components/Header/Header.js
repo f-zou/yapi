@@ -17,13 +17,13 @@ const plugin = require('client/plugin.js');
 let HeaderMenu = {
   user: {
     path: '/user/profile',
-    name: '个人中心',
+    name: 'my profile',
     icon: 'user',
     adminFlag: false
   },
   solution: {
     path: '/user/list',
-    name: '用户管理',
+    name: 'member management',
     icon: 'solution',
     adminFlag: true
   }
@@ -41,7 +41,7 @@ const MenuUser = props => (
       }
       return (
         <Menu.Item key={key}>
-          {item.name === '个人中心' ? (
+          {item.name === 'Personal center' ? (
             <Link to={item.path + `/${props.uid}`}>
               <Icon type={item.icon} />
               {item.name}
@@ -57,7 +57,7 @@ const MenuUser = props => (
     })}
     <Menu.Item key="9">
       <a onClick={props.logout}>
-        <Icon type="logout" />退出
+        <Icon type="logout" />logout
       </a>
     </Menu.Item>
   </Menu>
@@ -66,30 +66,30 @@ const MenuUser = props => (
 const tipFollow = (
   <div className="title-container">
     <h3 className="title">
-      <Icon type="star" /> 关注
+      <Icon type="star" /> follow
     </h3>
-    <p>这里是你的专属收藏夹，便于你找到自己的项目</p>
+    <p>your favorite project</p>
   </div>
 );
 const tipAdd = (
   <div className="title-container">
     <h3 className="title">
-      <Icon type="plus-circle" /> 新建项目
+      <Icon type="plus-circle" /> create new project
     </h3>
-    <p>在任何页面都可以快速新建项目</p>
+    <p>Quickly create new projects on any page</p>
   </div>
 );
 const tipDoc = (
   <div className="title-container">
     <h3 className="title">
-      使用文档 <Tag color="orange">推荐!</Tag>
+      use document <Tag color="orange">!</Tag>
     </h3>
     <p>
-      初次使用 YApi，强烈建议你阅读{' '}
+     use yapi {' '}
       <a target="_blank" href="https://yapi.ymfe.org" rel="noopener noreferrer">
-        使用文档
+    docus
       </a>
-      ，我们为你提供了通俗易懂的快速入门教程，更有详细的使用说明，欢迎阅读！{' '}
+      ，more examples{' '}
     </p>
   </div>
 );
@@ -118,7 +118,7 @@ const ToolUser = props => {
         arrowPointAtCenter
         visible={props.studyTip === 1 && !props.study}
       >
-        <Tooltip placement="bottom" title={'我的关注'}>
+        <Tooltip placement="bottom" title={'my follows'}>
           <li className="toolbar-li">
             <Link to="/follow">
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="star" />
@@ -134,7 +134,7 @@ const ToolUser = props => {
         arrowPointAtCenter
         visible={props.studyTip === 2 && !props.study}
       >
-        <Tooltip placement="bottom" title={'新建项目'}>
+        <Tooltip placement="bottom" title={'create new project'}>
           <li className="toolbar-li">
             <Link to="/add-project">
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="plus-circle" />
@@ -150,7 +150,7 @@ const ToolUser = props => {
         arrowPointAtCenter
         visible={props.studyTip === 3 && !props.study}
       >
-        <Tooltip placement="bottom" title={'使用文档'}>
+        <Tooltip placement="bottom" title={'documents'}>
           <li className="toolbar-li">
             <a target="_blank" href="https://yapi.ymfe.org" rel="noopener noreferrer">
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="question-circle" />
@@ -248,7 +248,7 @@ export default class HeaderCom extends Component {
     if (e.key != '/doc') {
       this.props.changeMenuItem(e.key);
       if (!this.props.login) {
-        message.info('请先登录', 1);
+        message.info('please login', 1);
       }
     }
   };

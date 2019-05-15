@@ -232,7 +232,7 @@ class MemberList extends Component {
                   className="select"
                   onChange={this.changeUserRole}
                 >
-                  <Option value={'owner-' + record.uid}>Team leader</Option>
+                  <Option value={'owner-' + record.uid}>owner</Option>
                   <Option value={'dev-' + record.uid}>Developer</Option>
                   <Option value={'guest-' + record.uid}>visiter</Option>
                 </Select>
@@ -251,7 +251,7 @@ class MemberList extends Component {
           } else {
             // 非管理员可以看到权限 但无法修改
             if (record.role === 'owner') {
-              return 'team leader';
+              return 'owner';
             } else if (record.role === 'dev') {
               return 'developer';
             } else if (record.role === 'guest') {
@@ -302,7 +302,7 @@ class MemberList extends Component {
               </Col>
               <Col span="15">
                 <Select defaultValue="dev" className="select" onChange={this.changeNewMemberRole}>
-                  <Option value="owner">team leader</Option>
+                  <Option value="owner">owner</Option>
                   <Option value="dev">developer</Option>
                   <Option value="guest">visiter</Option>
                 </Select>

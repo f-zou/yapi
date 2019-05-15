@@ -287,7 +287,7 @@ const HomeGuest = () => (
               <div className="section-block block-first">
                 <h4>administrator(* N)</h4>
                 <p className="item"> - Create a group</p>
-                <p className="item"> - Distribution team leader</p>
+                <p className="item"> - Distribution owner</p>
                 <p className="item"> {"- Manage all information of members"}</p>
               </div>
               <div className="section-block block-second">

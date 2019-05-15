@@ -188,7 +188,7 @@ class ProjectList extends Component {
                 <RadioGroup>
                   <Radio value="private" className="radio">
                     <Icon type="lock" />private<br />
-                    <span className="radio-desc">Only team leaders and project owner can index and view the project information</span>
+                    <span className="radio-desc">Only owners and project owner can index and view the project information</span>
                   </Radio>
                   <br />
                   {/* <Radio value="public" className="radio">

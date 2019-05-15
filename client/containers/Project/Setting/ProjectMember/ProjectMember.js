@@ -287,7 +287,7 @@ class ProjectMember extends Component {
                   className="select"
                   onChange={this.changeUserRole}
                 >
-                  <Option value={'owner-' + record.uid}>team Leader</Option>
+                  <Option value={'owner-' + record.uid}>owner</Option>
                   <Option value={'dev-' + record.uid}>developer</Option>
                   <Option value={'guest-' + record.uid}>guest</Option>
                 </Select>
@@ -305,7 +305,7 @@ class ProjectMember extends Component {
           } else {
             // 非管理员可以看到权限 但无法修改
             if (record.role === 'owner') {
-              return 'team leader';
+              return 'owner';
             } else if (record.role === 'dev') {
               return 'developer';
             } else if (record.role === 'guest') {
@@ -348,7 +348,7 @@ class ProjectMember extends Component {
                 </Col>
                 <Col span="15">
                   <Select defaultValue="dev" className="select" onChange={this.changeNewMemberRole}>
-                    <Option value="owner">team leader</Option>
+                    <Option value="owner">owner</Option>
                     <Option value="dev">developer</Option>
                     <Option value="guest">guest</Option>
                   </Select>

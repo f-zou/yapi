@@ -308,7 +308,7 @@ export default class GroupList extends Component {
             </Row>
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">team leader：</div>
+                <div className="label">owner：</div>
               </Col>
               <Col span="15">
                 <UsernameAutoComplete callbackState={this.onUserSelect} />

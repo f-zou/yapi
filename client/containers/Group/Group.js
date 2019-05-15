@@ -84,17 +84,17 @@ export default class Group extends Component {
             }}
           >
             <Tabs type="card" className="m-tab tabs-large" style={{ height: '100%' }}>
-              <TabPane tab="项目列表" key="1">
+              <TabPane tab="Project list" key="1">
                 <ProjectList />
               </TabPane>
               {this.props.currGroup.type === 'public' ? (
-                <TabPane tab="成员列表" key="2">
+                <TabPane tab="Member list" key="2">
                   <MemberList />
                 </TabPane>
               ) : null}
               {['admin', 'owner', 'guest', 'dev'].indexOf(this.props.curUserRoleInGroup) > -1 ||
               this.props.curUserRole === 'admin' ? (
-                <TabPane tab="分组动态" key="3">
+                <TabPane tab="Group activity" key="3">
                   <GroupLog />
                 </TabPane>
               ) : (
@@ -102,7 +102,7 @@ export default class Group extends Component {
               )}
               {(this.props.curUserRole === 'admin' || this.props.curUserRoleInGroup === 'owner') &&
               this.props.currGroup.type !== 'private' ? (
-                <TabPane tab="分组设置" key="4">
+                <TabPane tab="Group settings" key="4">
                   <GroupSetting />
                 </TabPane>
               ) : null}

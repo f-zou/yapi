@@ -173,10 +173,10 @@ class ProjectList extends Component {
           <Col span={8}>
             {isShow ? (
               <Link to="/add-project">
-                <Button type="primary">添加项目</Button>
+                <Button type="primary">add project</Button>
               </Link>
             ) : (
-              <Tooltip title="you do not have permission. please contact team leader or admin">
+              <Tooltip title="you do not have permission. please contact owner or admin">
                 <Button type="primary" disabled>
                   add project
                 </Button>

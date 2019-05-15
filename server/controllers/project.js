@@ -656,7 +656,7 @@ class projectController extends baseController {
 
     params.role = ['owner', 'dev', 'guest'].find(v => v === params.role) || 'dev';
     let rolename = {
-      owner: 'team leader',
+      owner: 'owner',
       dev: 'developer',
       guest: 'guest'
     };

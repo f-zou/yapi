@@ -14,7 +14,7 @@ class baseController {
     //网站上线后，role对象key是不能修改的，value可以修改
     this.roles = {
       admin: 'Admin',
-      member: '网站会员'
+      member: 'member'
     };
   }
 
