@@ -999,7 +999,7 @@ class InterfaceColContent extends Component {
                 margin: '8px 20px 16px 0px'
               }}
             >
-              测试集合&nbsp;<a
+              Test set &nbsp;<a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://yapi.ymfe.org/documents/case.html"

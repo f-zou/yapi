@@ -227,17 +227,17 @@ class projectController extends baseController {
     let catInst = yapi.getInst(interfaceCatModel);
     if (result._id) {
       await colInst.save({
-        name: '公共测试集',
+        name: 'Public test set',
         project_id: result._id,
-        desc: '公共测试集',
+        desc: 'Public test set',
         uid: this.getUid(),
         add_time: yapi.commons.time(),
         up_time: yapi.commons.time()
       });
       await catInst.save({
-        name: '公共分类',
+        name: 'Public Categories',
         project_id: result._id,
-        desc: '公共分类',
+        desc: 'Public Categories',
         uid: this.getUid(),
         add_time: yapi.commons.time(),
         up_time: yapi.commons.time()
@@ -306,9 +306,9 @@ class projectController extends baseController {
       // 增加集合
       if (result._id) {
         await colInst.save({
-          name: '公共测试集',
+          name: 'Public test set',
           project_id: result._id,
-          desc: '公共测试集',
+          desc: 'Public test set',
           uid: this.getUid(),
           add_time: yapi.commons.time(),
           up_time: yapi.commons.time()
@@ -656,9 +656,9 @@ class projectController extends baseController {
 
     params.role = ['owner', 'dev', 'guest'].find(v => v === params.role) || 'dev';
     let rolename = {
-      owner: '组长',
-      dev: '开发者',
-      guest: '访客'
+      owner: 'team leader',
+      dev: 'developer',
+      guest: 'guest'
     };
 
     let result = await projectInst.changeMemberRole(params.id, params.member_uid, params.role);

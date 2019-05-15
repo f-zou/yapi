@@ -1,6 +1,6 @@
 {
   "name": "@stuttgarter/yapi-en",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "origin-version": "1.7.0",
   "description": "YAPI",
   "main": "server/app.js",

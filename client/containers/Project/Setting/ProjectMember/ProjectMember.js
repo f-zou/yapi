@@ -289,7 +289,7 @@ class ProjectMember extends Component {
                 >
                   <Option value={'owner-' + record.uid}>team Leader</Option>
                   <Option value={'dev-' + record.uid}>developer</Option>
-                  <Option value={'guest-' + record.uid}>visitor</Option>
+                  <Option value={'guest-' + record.uid}>guest</Option>
                 </Select>
                 <Popconfirm
                   placement="topRight"
@@ -309,7 +309,7 @@ class ProjectMember extends Component {
             } else if (record.role === 'dev') {
               return 'developer';
             } else if (record.role === 'guest') {
-              return 'visitor';
+              return 'guest';
             } else {
               return '';
             }
@@ -350,7 +350,7 @@ class ProjectMember extends Component {
                   <Select defaultValue="dev" className="select" onChange={this.changeNewMemberRole}>
                     <Option value="owner">team leader</Option>
                     <Option value="dev">developer</Option>
-                    <Option value="guest">visitor</Option>
+                    <Option value="guest">guest</Option>
                   </Select>
                 </Col>
               </Row>
@@ -366,7 +366,7 @@ class ProjectMember extends Component {
           >
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label usernamelabel">项目名: </div>
+                <div className="label usernamelabel">project name: </div>
               </Col>
               <Col span="15">
                 <Select
@@ -427,7 +427,7 @@ class ProjectMember extends Component {
                     </p>
                     {item.role === 'owner' ? <p className="item-role">teamleader</p> : null}
                     {item.role === 'dev' ? <p className="item-role">developer</p> : null}
-                    {item.role === 'guest' ? <p className="item-role">visitor</p> : null}
+                    {item.role === 'guest' ? <p className="item-role">guest</p> : null}
                   </div>
                 );
               })

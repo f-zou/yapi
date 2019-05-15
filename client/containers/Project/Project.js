@@ -77,11 +77,11 @@ export default class Project extends Component {
   render() {
     const { match, location } = this.props;
     let routers = {
-      interface: { name: '接口', path: '/project/:id/interface/:action', component: Interface },
-      activity: { name: '动态', path: '/project/:id/activity', component: Activity },
-      data: { name: '数据管理', path: '/project/:id/data', component: ProjectData },
-      members: { name: '成员管理', path: '/project/:id/members', component: ProjectMember },
-      setting: { name: '设置', path: '/project/:id/setting', component: Setting }
+      interface: { name: 'interface', path: '/project/:id/interface/:action', component: Interface },
+      activity: { name: 'activity', path: '/project/:id/activity', component: Activity },
+      data: { name: 'data management', path: '/project/:id/data', component: ProjectData },
+      members: { name: 'member management', path: '/project/:id/members', component: ProjectMember },
+      setting: { name: 'setting', path: '/project/:id/setting', component: Setting }
     };
 
     plugin.emitHook('sub_nav', routers);
