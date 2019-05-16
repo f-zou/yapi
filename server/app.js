@@ -57,7 +57,7 @@ app.use(koaStatic(yapi.path.join(yapi.WEBROOT, 'static'), { index: indexFile, gz
 
 app.listen(yapi.WEBCONFIG.port);
 commons.log(
-  `服务已启动，请打开下面链接访问: \nhttp://127.0.0.1${
+  `The service started, please open the link below to visit: \nhttp://127.0.0.1${
     yapi.WEBCONFIG.port == '80' ? '' : ':' + yapi.WEBCONFIG.port
   }/`
 );

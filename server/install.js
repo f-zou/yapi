@@ -13,7 +13,7 @@ function install() {
 
   if (exist) {
     throw new Error(
-      'init.lock文件已存在，请确认您是否已安装。如果需要重新安装，请删掉init.lock文件'
+      'init.lock allready exists. Make sure to reinstall. before reinstall please delete init.lock file'
     );
   }
 
@@ -138,12 +138,12 @@ function setupSql() {
         function() {
           fs.ensureFileSync(yapi.path.join(yapi.WEBROOT_RUNTIME, 'init.lock'));
           console.log(
-            `初始化管理员账号成功,账号名："${yapi.WEBCONFIG.adminAccount}"，密码："ymfe.org"`
+            `Initialize the administrator account successfully,user："${yapi.WEBCONFIG.adminAccount}"，password："ymfe.org"`
           ); // eslint-disable-line
           process.exit(0);
         },
         function(err) {
-          throw new Error(`初始化管理员账号 "${yapi.WEBCONFIG.adminAccount}" 失败, ${err.message}`); // eslint-disable-line
+          throw new Error(`Initialize the administrator account "${yapi.WEBCONFIG.adminAccount}" failed, ${err.message}`); // eslint-disable-line
         }
       );
     })
